@@ -1,0 +1,48 @@
+
+# Apps
+*.app/
+ 
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary/
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+Assets/AssetStoreTools*
+
+# Probuilder
+Assets/ProBuilder Data/
+Assets/ProBuilder Data.meta
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+
+# Visual Studio cache directory
+/.vs/
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+!Icon?/
+ehthumbs.db
+[Tt]humbs.db
