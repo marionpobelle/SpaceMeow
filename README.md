@@ -40,7 +40,15 @@ During the development phase, a build of the game was made available on a discor
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_leaderboard.png?raw=true)" width="800" height="400"/></p>
 
 
-# Demonstration
+# Demo
+
+### Main Menu
+
+https://user-images.githubusercontent.com/112869026/208313370-a13b1179-143c-487d-ba1b-b8682809e187.mp4
+
+### Gameplay
+
+https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c-a463-487d381856cb.mp4
 
 # Implementation
 
