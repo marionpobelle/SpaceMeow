@@ -104,7 +104,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Background sprite
 - - [x] Resume button + sprite
 - - [x] Main menu button + sprite
-- - [ ] Slides for sound + sprites
+- - [ ] Sliders for sound + sprites
 - - [x] Display current score and highscore
 
 - [x] ENDING SCREEN
