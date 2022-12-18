@@ -33,6 +33,10 @@ Destroys all asteroids visible on screen. Doesn't grant the player points for th
 
 # Development
 
+This game is made with [Unity](https://unity.com/fr) and the assets are made with [Pixel Art Studio](https://store.steampowered.com/app/1204050/Pixel_Studio__pixel_art_editor/?l=french).
+
+During the development phase, a build of the game was made available on a discord server for people to compete and report bugs. The current leaderboard is :
+
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_leaderboard.png?raw=true)" width="800" height="400"/></p>
 
 
