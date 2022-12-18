@@ -15,8 +15,8 @@ a higher score.
 
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/bonus_star.png?raw=true)" width="100" height="100"/></p>
 
-Grants the player invulnerability for a few seconds. A sound cue will play when this bonus is collected by 
-the player and when its effect dissipates. A visual cue will also show the player that the effect is active.
+Grants the player invulnerability for a few seconds. A sound feedback will play when this bonus is collected by 
+the player and when its effect dissipates. A visual feedback will also show the player that the effect is active.
 
 ### Heart
 
