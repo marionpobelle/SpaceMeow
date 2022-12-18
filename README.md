@@ -68,7 +68,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] First wave contains no small asteroid
 - - [x] Asteroids spawn out of sight
 - - [x] Score increasing upon destroying asteroids
-- - [x] Screen bounds preventing the player to leave the screen view
+- - [x] Screen bounds preventing the player from leaving the screen view
 - - [ ] Difficulty scaling
 
 - [x] PLAYER
