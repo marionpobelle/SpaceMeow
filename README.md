@@ -52,9 +52,6 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 
 # TDL
 
-- [ ] incomplete task
-- - [x] completed task
-
 - [ ] MAIN MENU
 - - [x] Background sprite
 - - [x] Start button + sprite
