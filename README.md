@@ -54,3 +54,59 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 
 - [ ] incomplete task
 - - [x] completed task
+
+- [ ] MAIN MENU
+- - [x] Background sprite
+- - [x] Start button + sprite
+- - [x] Quit button + sprite
+- - [x] Controls button + sprite
+- - [x] Controls menu + sprite
+- - [x] Music
+- - [ ] Windowed/Fullscreen dropdown + sprite
+
+- [ ] GAME
+- - [x] Background sprite
+- - [x] Music
+- - [x] UI for HP and Lifes + sprites
+- - [x] First wave contains no small asteroid
+- - [x] Asteroids spawn out of sight
+- - [x] Score increasing upon destroying asteroids
+- - [x] Screen bounds preventing the player to leave the screen view
+- - [x] Difficulty scaling
+
+- [x] PLAYER
+- - [x] HP and Lifes system
+- - [x] Death + animation + sound feedback + respawn
+- - [x] Damage + animation + sound feedback + invulnerability
+- - [x] Movement with space inertia
+
+- [x] ARROW
+- - [x] Firepoint follows the mouse
+- - [x] Left click : on click shots
+- - [x] Right click : uninterrupted shots
+- - [x] Shooting sound feedback
+- - [x] Anti-macro system
+- - [x] Animation upon shot hitting an asteroid
+
+- [x] ASTEROIDS
+- - [x] Sound feedback upon damage
+- - [x] Sound feedback upon destruction
+- - [x] Animation upon destruction
+- - [x] Deterioration upon taking damage
+- - [x] Destruction upon collision with the player
+- - [x] HP/Point system
+
+- [x] BONUSES
+- - [x] Sound cue upon appearance
+- - [x] Disappearance after a few seconds
+- - [x] Heart : sound feedback + effect
+- - [x] Bubble : sound feedback + effect + animation
+- - [x] Star : sound feedback + effect + animation
+
+
+
+
+
+
+
+
