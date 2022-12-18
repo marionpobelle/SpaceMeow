@@ -1,5 +1,7 @@
 # Presentation
 
+<p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_main_menu.png?raw=true)" width="200" height="100"/></p>
+
 Space Meow is a Top/Down shooter game.
 In this game the player incarnates a cat in a spaceship that is trapped in an asteroid field. The player will have to shoot and dodge the asteroids to keep himself out 
 of trouble as long as possible !
