@@ -33,6 +33,9 @@ Destroys all asteroids visible on screen. Doesn't grant the player points for th
 
 # Development
 
+<p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_leaderboard.png?raw=true)" width="800" height="400"/></p>
+
+
 # Demonstration
 
 # Implementation
