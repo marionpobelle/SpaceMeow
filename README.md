@@ -3,10 +3,10 @@
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_main_menu.png?raw=true)" width="800" height="400"/></p>
 
 Space Meow is a Top/Down shooter game.
-In this game the player incarnates a cat in a spaceship that is trapped in an asteroid field. The player will have to shoot and dodge the asteroids to keep himself out 
+In this game the player takes the role a cat in a spaceship that is trapped in an asteroid field. The player will have to shoot and dodge the asteroids to keep themselves out 
 of trouble as long as possible !
 
-Destroying asteroids grants the player points that increase his overall score. Different bonuses will randomly spawn in order to help them survive longer and get 
+Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get 
 a higher score.
 
 ## Bonuses available
@@ -72,7 +72,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Asteroids spawn out of sight
 - - [x] Score increasing upon destroying asteroids
 - - [x] Screen bounds preventing the player to leave the screen view
-- - [x] Difficulty scaling
+- - [ ] Difficulty scaling
 
 - [x] PLAYER
 - - [x] HP and Lifes system
@@ -103,10 +103,24 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Bubble : sound feedback + effect + animation
 - - [x] Star : sound feedback + effect + animation
 
+- [ ] PAUSE MENU
+- - [x] Background sprite
+- - [x] Resume button + sprite
+- - [x] Main menu button + sprite
+- - [ ] Slides for sound + sprites
+- - [x] Display current score and highscore
 
+- [x] ENDING SCREEN
+- - [x] Background sprite 
+- - [x] Display highscore
+- - [x] Sound cue upon new highscore
+- - [x] Try again button + sprite
+- - [x] Main menu button
+- - [x] Quit button
+- - [x] Reset highscore button for tests
+- - [x] Save highscore between sessions
+- - [x] Music
 
-
-
-
-
-
+- [ ] BOSS
+- - [ ] Find music
+- - [ ] Brainstorm boss implementation
