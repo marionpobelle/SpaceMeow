@@ -14,7 +14,7 @@ a higher score.
 
 #Star
 
-![alt text](https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/bonus_star.png?raw=true)
+![alt text](https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/bonus_star.png?raw=true width="200" height="200")
 
 Grants the player invulnerability for a few seconds. A sound cue will play when this bonus is collected by 
 the player and when its effect dissipates. A visual cue will also show the player that the effect is active.
