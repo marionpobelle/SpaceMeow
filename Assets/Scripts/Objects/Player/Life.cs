@@ -9,20 +9,19 @@ public class Life : MonoBehaviour
     //Reference to health bar aspect
     private Image lifeBar;
 
-    //Reference to player
-    public GameObject player;
+    //Current lifes
+    public float lifes;
 
-    //Reference to PlayerBehavior
-    public PlayerBehavior playerB;
+    //Number of Life
+    public int maxLifes = 3;
 
     /***
     Start is called before the first frame update.
     ***/
     void Start()
     {
+        lifes = maxLifes;
         lifeBar = GetComponent<Image>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerB = player.GetComponent<PlayerBehavior>();
     }
 
     /***
@@ -31,6 +30,20 @@ public class Life : MonoBehaviour
     void Update()
     {
         //Update with player Lifes
-        lifeBar.fillAmount = playerB.lifeFill();
+        lifeBar.fillAmount = LifeFill();
+    }
+
+    /***
+    Compute the current lifes for the life bar.
+    ***/
+    public float LifeFill(){
+        return lifes / maxLifes;
+    }
+
+    /***
+    Lower the lifes by 1.
+    ***/
+    public void LowerLifes(){
+        lifes = lifes - 1;
     }
 }

@@ -7,17 +7,12 @@ public class HP_trigger : MonoBehaviour
     //Reference to player
     GameObject player;
 
-    //Reference to PlayerBehavior
-    PlayerBehavior playerB;
-
-
     /***
     Start is called before the first frame update.
     ***/
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerB = player.GetComponent<PlayerBehavior>();
         ShowAndHide(6f);                                          
     }
 
@@ -52,7 +47,7 @@ public class HP_trigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player") {  
             FindObjectOfType<AudioManager>().Play("HPup");   
-            if(playerB.HP<playerB.maxHealth) playerB.HP +=1;
+            if(player.GetComponent<Health>().HP < player.GetComponent<Health>().maxHealth) player.GetComponent<Health>().IncreaseHP(1);
             Destroy(gameObject);
         }
     }

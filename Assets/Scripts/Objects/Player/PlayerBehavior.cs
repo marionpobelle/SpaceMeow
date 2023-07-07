@@ -19,23 +19,17 @@ public class PlayerBehavior : MonoBehaviour
     //Player move speed
     float moveSpeed = 5;
 
-    //Maximum HP
-    public float maxHealth;
-
-    //Current HP
-    public float HP;
-
-    //Current lifes
-    public float lifes;
-
-    //Number of Life
-    public int maxLifes = 3;
-
     //Reference to Game manager
     public GameManager gm;
 
+    //Reference to the HP bar
+    public GameObject HPbar;
+
+    //Reference to the fife bar
+    public GameObject lifeBar;
+
     //Impulse given after hitting a side of the screen
-    float imp = 10;
+    float sideScreenImpulsion = 10;
 
     //Indicate if the death animation is playing
     public bool death_anim = false;
@@ -44,8 +38,6 @@ public class PlayerBehavior : MonoBehaviour
     int keybinding;
 
     void Start() {
-        HP = maxHealth;
-        lifes = maxLifes;
         keybinding = PlayerPrefs.GetInt("KeyBinding", 1);
     }
 
@@ -90,22 +82,22 @@ public class PlayerBehavior : MonoBehaviour
         if(playerPos.x > gm.max_x){
             playerPos.x = gm.max_x;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(- moveSpeed * imp * Time.deltaTime, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(- moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
         if(playerPos.x < gm.min_x){
             playerPos.x = gm.min_x;
             transform.position = playerPos;
-            rb.AddForce(new Vector2( moveSpeed * imp * Time.deltaTime, 0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2( moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
         if(playerPos.y > gm.max_y){
             playerPos.y = gm.max_y;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(0, - moveSpeed * imp * Time.deltaTime), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, - moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
         }
         if(playerPos.y < gm.min_y){
             playerPos.y = gm.min_y;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(0, moveSpeed * imp * Time.deltaTime), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
         }
     }
 
@@ -118,17 +110,17 @@ public class PlayerBehavior : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if(collision.collider.tag == "Enemy") {
-            if(HP > 0){
+            if(HPbar.GetComponent<Health>().HP > 0){
                 if(collision.collider.name == "BigMeteor"){
-                    HP -= 2;
+                    HPbar.GetComponent<Health>().LowerHP(2);
                 }
                 else if(collision.collider.name == "TinyMeteor"){
-                    HP -= 1;
+                    HPbar.GetComponent<Health>().LowerHP(1);
                 }
-                if(HP <= 0){ 
+                if(HPbar.GetComponent<Health>().HP <= 0){ 
                     //If we lose all of our HP we lose a life
-                    lifes -= 1;
-                    if(lifes <= 0) {
+                    lifeBar.GetComponent<Life>().LowerLifes();
+                    if(lifeBar.GetComponent<Life>().lifes <= 0) {
                         Debug.Log("Game is lost !");
                         gm.gameLost();
                     }
@@ -150,20 +142,6 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     /***
-    Compute the current HP for the HP bar.
-    ***/
-    public float barFill(){
-        return HP / maxHealth;
-    }
-
-    /***
-    Compute the current lifes for the life bar.
-    ***/
-    public float lifeFill(){
-        return lifes / maxLifes;
-    }
-
-    /***
     Reset the player HP and position upon death.
     ***/
     public void ResetPlayer() {
@@ -171,7 +149,7 @@ public class PlayerBehavior : MonoBehaviour
         playerPos.x = 0;
         playerPos.y = 0;
         transform.position = playerPos;
-        HP = maxHealth;
+        HPbar.GetComponent<Health>().SetHPFull();
     }
     
     /***

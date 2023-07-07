@@ -518,8 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91be7f02ec0f49d48a17ca0896b8946d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1373357608}
-  playerB: {fileID: 1373357612}
+  maxHealth: 5
+  HP: 0
 --- !u!114 &366622071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,10 +685,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00019398332
-    y: 0
-    width: 0.99961203
-    height: 1
+    x: 0
+    y: 0.00025826693
+    width: 1
+    height: 0.99948347
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -2298,8 +2298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ebfb8cd12954b348a0d427f63dc6d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1373357608}
-  playerB: {fileID: 1373357612}
+  lifes: 0
+  maxLifes: 3
 --- !u!114 &1529766393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,6 +3707,18 @@ PrefabInstance:
       propertyPath: pc2d
       value: 
       objectReference: {fileID: 1373357618}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: HPbar
+      value: 
+      objectReference: {fileID: 366622068}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: lifeBar
+      value: 
+      objectReference: {fileID: 1529766390}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1433309608}
     - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: maxHealth
       value: 5
