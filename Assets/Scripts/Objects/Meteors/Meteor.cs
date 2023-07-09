@@ -5,7 +5,7 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
    //Object rigidbody2D
-    public Rigidbody2D rg;
+    public Rigidbody2D rigidbodyMeteor;
     
     //Direction speed
     protected float speed;

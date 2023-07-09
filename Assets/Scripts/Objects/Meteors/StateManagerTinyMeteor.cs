@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StateManagerTM : MonoBehaviour
+public class StateManagerTinyMeteor : MonoBehaviour
 {
    //Displaying sprite for low health
    public Sprite lowHealth;
@@ -12,13 +12,13 @@ public class StateManagerTM : MonoBehaviour
    public Sprite fullHealth; 
 
    //This represent the current health.
-   int health; 
+   int currentHealth; 
  
    //Tiny meteor's sprite renderer
    private SpriteRenderer spriteRenderer;
 
    //Reference to a tiny meteor's behavior
-   SmallMBehavior sb;
+   SmallMeteorBehavior smallMeteorBehavior;
 
    /***
     Start is called before the first frame update
@@ -26,7 +26,7 @@ public class StateManagerTM : MonoBehaviour
     private void Start()
    {
       spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-      sb = gameObject.GetComponent<SmallMBehavior>();
+      smallMeteorBehavior = gameObject.GetComponent<SmallMeteorBehavior>();
      }
    
    /***
@@ -34,7 +34,7 @@ public class StateManagerTM : MonoBehaviour
     ***/
    private void FixedUpdate()
    {
-      health = sb.GetHP();
+      currentHealth = smallMeteorBehavior.GetHP();
       SetSprite();
    }
    
@@ -43,7 +43,7 @@ public class StateManagerTM : MonoBehaviour
     ***/
    private void SetSprite ()
    {
-      if (health < 2)
+      if (currentHealth < 2)
       {
          spriteRenderer.sprite = lowHealth;
       }

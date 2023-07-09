@@ -3,10 +3,10 @@ using UnityEngine;
 public class shooting : MonoBehaviour
 {
     //Reference to game manager
-    public GameManager gm;
+    public GameManager gameManager;
 
     //Reference to PlayerBehavior
-    public PlayerBehavior pb;
+    public PlayerBehavior playerBehavior;
 
     //FirePoint position
     public Transform firePoint;
@@ -29,8 +29,8 @@ public class shooting : MonoBehaviour
     Update is called every frame, if the MonoBehaviour is enabled.
     ***/
     void Update(){
-        if(gm.isPaused() == false){
-            if(pb.GetDeath() == false){
+        if(gameManager.isPaused() == false){
+            if(playerBehavior.GetDeath() == false){
                 //"fire1" is a keyword for standard shooting button, here its left mouse button
                 if(Input.GetButtonDown("Fire1") && Time.time > canFire && !Input.GetButton("Fire2")) {
                     Shoot();
@@ -53,8 +53,8 @@ public class shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         //Play bullet sound
         FindObjectOfType<AudioManager>().PlayOneShot("Shot");
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * speed, ForceMode2D.Impulse);
+        Rigidbody2D rigidbodyBullet = bullet.GetComponent<Rigidbody2D>();
+        rigidbodyBullet.AddForce(firePoint.up * speed, ForceMode2D.Impulse);
     }
 }
 

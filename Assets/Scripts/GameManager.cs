@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
  
     //Reference to PauseMenu
-    public PauseMenu pm;
+    public PauseMenu pauseMenu;
 
     //Amount of meteors spawned each waves
     public int numberOfMeteors;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     float spawnTime = 0f;
 
     //Timer between each wave of enemies
-    float timerE = 0f;
+    float timerBetweenEnemyWaves = 0f;
 
     //Score
     public int score = 0;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     float bonusTime = 0f;
 
     //Timer between each bonus spawn
-    float timerB = 0f;
+    float timerBetweenBonus = 0f;
 
     //Highscore
     public int highScore = 0;
@@ -69,25 +69,25 @@ public class GameManager : MonoBehaviour
             spawnTime = Random.Range(2f, 8f);
         }
         //Spawn enemies
-        timerE += Time.deltaTime;
-        if(timerE >= spawnTime){
+        timerBetweenEnemyWaves += Time.deltaTime;
+        if(timerBetweenEnemyWaves >= spawnTime){
             EnemiesSpawner();
-            timerE = 0f;
+            timerBetweenEnemyWaves = 0f;
             spawnTime = 0f;
         }
         //Spawn bonuses
-        timerB += Time.deltaTime;
-        if(timerB >= bonusTime){
+        timerBetweenBonus += Time.deltaTime;
+        if(timerBetweenBonus >= bonusTime){
             BonusSpawner();
             FindObjectOfType<AudioManager>().Play("BonusSpawn");
-            timerB = 0f;
+            timerBetweenBonus = 0f;
             bonusTime = 0f;
         }
         //Check if the Pause key is pressed
         if(Input.GetKey(KeyCode.Escape)){
             FindObjectOfType<AudioManager>().Play("Button");
             SetScore();
-            pm.Pause();
+            pauseMenu.Pause();
         } 
     }
 

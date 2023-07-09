@@ -8,10 +8,10 @@ public class PlayerBehavior : MonoBehaviour
     public Animator anim;
 
     //Player polygonCollider2D
-    public PolygonCollider2D pc2d;
+    public PolygonCollider2D polygonCollider2d;
 
     //Player rigidbody2D
-    public Rigidbody2D rb;
+    public Rigidbody2D rigidbodyPlayer;
 
     //Main camera
     public Camera cam;
@@ -20,7 +20,7 @@ public class PlayerBehavior : MonoBehaviour
     float moveSpeed = 5;
 
     //Reference to Game manager
-    public GameManager gm;
+    public GameManager gameManager;
 
     //Reference to the HP bar
     public GameObject HPbar;
@@ -49,55 +49,55 @@ public class PlayerBehavior : MonoBehaviour
         if(keybinding == 1){
             //Using Impulse to simulate space inertia
             if(Input.GetKey("w")) {
-                rb.AddForce(new Vector2(0,moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(0,moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
             }
             if(Input.GetKey("s")) {
-                rb.AddForce(new Vector2(0,-moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(0,-moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
             }
             if(Input.GetKey("a")) {
-                rb.AddForce(new Vector2(-moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(-moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
             }
             if(Input.GetKey("d")) {
-                rb.AddForce(new Vector2(moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
             }
         //AZERTY
         }else{
             if(Input.GetKey("z")) {
-                rb.AddForce(new Vector2(0,moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(0,moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
             }
             if(Input.GetKey("s")) {
-                rb.AddForce(new Vector2(0,-moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(0,-moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
             }
             if(Input.GetKey("q")) {
-                rb.AddForce(new Vector2(-moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(-moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
             }
             if(Input.GetKey("d")) {
-                rb.AddForce(new Vector2(moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
+                rigidbodyPlayer.AddForce(new Vector2(moveSpeed * Time.deltaTime,0), ForceMode2D.Impulse);
             }
         }
         //Holds the current position
         Vector3 playerPos = transform.position;
         //If player gets out of view screen, TP him back to the edge
         //and give him a tiny impulse towards the inside of the screen so he doesn't get stuck
-        if(playerPos.x > gm.max_x){
-            playerPos.x = gm.max_x;
+        if(playerPos.x > gameManager.max_x){
+            playerPos.x = gameManager.max_x;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(- moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
+            rigidbodyPlayer.AddForce(new Vector2(- moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
-        if(playerPos.x < gm.min_x){
-            playerPos.x = gm.min_x;
+        if(playerPos.x < gameManager.min_x){
+            playerPos.x = gameManager.min_x;
             transform.position = playerPos;
-            rb.AddForce(new Vector2( moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
+            rigidbodyPlayer.AddForce(new Vector2( moveSpeed * sideScreenImpulsion * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
-        if(playerPos.y > gm.max_y){
-            playerPos.y = gm.max_y;
+        if(playerPos.y > gameManager.max_y){
+            playerPos.y = gameManager.max_y;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(0, - moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
+            rigidbodyPlayer.AddForce(new Vector2(0, - moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
         }
-        if(playerPos.y < gm.min_y){
-            playerPos.y = gm.min_y;
+        if(playerPos.y < gameManager.min_y){
+            playerPos.y = gameManager.min_y;
             transform.position = playerPos;
-            rb.AddForce(new Vector2(0, moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
+            rigidbodyPlayer.AddForce(new Vector2(0, moveSpeed * sideScreenImpulsion * Time.deltaTime), ForceMode2D.Impulse);
         }
     }
 
@@ -107,8 +107,8 @@ public class PlayerBehavior : MonoBehaviour
     @param collision : a collision.
     ***/
     void OnCollisionEnter2D(Collision2D collision){
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
+        rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezeRotation;
         if(collision.collider.tag == "Enemy") {
             Meteor meteor = collision.gameObject.GetComponent<Meteor>();
             if(meteor != null){
@@ -119,7 +119,7 @@ public class PlayerBehavior : MonoBehaviour
                         lifeBar.GetComponent<Life>().LowerLifes();
                         if(lifeBar.GetComponent<Life>().lifes <= 0) {
                             Debug.Log("Game is lost !");
-                            gm.gameLost();
+                            gameManager.gameLost();
                         }
                         else{
                             death_anim = true;
@@ -131,8 +131,8 @@ public class PlayerBehavior : MonoBehaviour
                         Invulnerability(2f, false);
                         FindObjectOfType<ArrowBehavior>().Pulse();
                         FindObjectOfType<AudioManager>().Play("DamageTaken");
-                        rb.constraints = RigidbodyConstraints2D.None;
-                        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                        rigidbodyPlayer.constraints = RigidbodyConstraints2D.None;
+                        rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
             }
@@ -174,7 +174,7 @@ public class PlayerBehavior : MonoBehaviour
     ***/
     public void Invulnerability(float time, bool star) {
         //We deactivate the polygonCollider2D to make the player intangible
-        pc2d.enabled = false;
+        polygonCollider2d.enabled = false;
         //Call a subroutine to reactivate the polygonCollider2D
         StartCoroutine(InvulnerabilityDelay(time, star));
     }
@@ -192,7 +192,7 @@ public class PlayerBehavior : MonoBehaviour
         yield return new WaitForSeconds(time/2);
         //Code to execute after the delay
         //Reactivate the hitbox
-        pc2d.enabled = true;
+        polygonCollider2d.enabled = true;
         isCoroutineExecuting = false;
     }
 

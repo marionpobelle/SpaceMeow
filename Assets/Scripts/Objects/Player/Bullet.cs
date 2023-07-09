@@ -9,14 +9,14 @@ public class Bullet : MonoBehaviour {
     public GameObject hitEffect;
     
     //Reference to game manager
-    public GameManager gm;
+    public GameManager gameManager;
     
     /***
     Awake is called when the script instance is being loaded.
     ***/
     void Awake()
     {
-        gm = FindObjectOfType<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     /***
@@ -29,11 +29,11 @@ public class Bullet : MonoBehaviour {
         if(other.gameObject.tag == "Enemy"){
             int meteorHP;
             if(other.name == "BigMeteor"){
-                other.GetComponent<BigMBehavior>().lowerHP();
-                meteorHP = other.GetComponent<BigMBehavior>().GetHP();
+                other.GetComponent<BigMeteorBehavior>().lowerHP();
+                meteorHP = other.GetComponent<BigMeteorBehavior>().GetHP();
                 if(meteorHP <= 0){
-                    gm.IncreaseBigScore();
-                    other.GetComponent<BigMBehavior>().animDest();
+                    gameManager.IncreaseBigScore();
+                    other.GetComponent<BigMeteorBehavior>().animDest();
                 }else{
                     FindObjectOfType<AudioManager>().Play("MeteorHit");
                     anim.SetTrigger("hit");
@@ -41,11 +41,11 @@ public class Bullet : MonoBehaviour {
                     
             }
             else if(other.name == "TinyMeteor"){
-                other.GetComponent<SmallMBehavior>().lowerHP();
-                meteorHP = other.GetComponent<SmallMBehavior>().GetHP();
+                other.GetComponent<SmallMeteorBehavior>().lowerHP();
+                meteorHP = other.GetComponent<SmallMeteorBehavior>().GetHP();
                 if(meteorHP <= 0){
-                        gm.IncreaseScore();
-                        other.GetComponent<SmallMBehavior>().animDest();
+                        gameManager.IncreaseScore();
+                        other.GetComponent<SmallMeteorBehavior>().animDest();
                     }else{
                         FindObjectOfType<AudioManager>().Play("MeteorHit");
                         anim.SetTrigger("hit");

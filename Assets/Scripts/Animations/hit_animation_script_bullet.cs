@@ -10,9 +10,9 @@ public class hit_animation_script_bullet : StateMachineBehaviour
     {
         Debug.Log("enter");
         FindObjectOfType<AudioManager>().Play("Explosion");
-        Rigidbody2D rb = animator.gameObject.GetComponent<Rigidbody2D>();
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Rigidbody2D rigidbody = animator.gameObject.GetComponent<Rigidbody2D>();
+        rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         Destroy(animator.gameObject, stateInfo.length);
     }
 }

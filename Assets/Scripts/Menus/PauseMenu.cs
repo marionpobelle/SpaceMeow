@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
 
     //Reference to Game manager
-    public GameManager gm;
+    public GameManager gameManager;
 
     //Reference to the audio mixer
     public AudioMixer audioMixer;
@@ -19,10 +19,10 @@ public class PauseMenu : MonoBehaviour
     Pauses the game.
     ***/
     public void Pause(){
-        if(gm.isPaused() == true){
+        if(gameManager.isPaused() == true){
             return;
         }else{
-            gm.pauseGame();
+            gameManager.pauseGame();
             pauseMenu.SetActive(true);
             FindObjectOfType<AudioManager>().Pause("Theme");
             FindObjectOfType<AudioManager>().Play("PauseMenu");
@@ -34,8 +34,8 @@ public class PauseMenu : MonoBehaviour
     Resumes the game.
     ***/
     public void Resume(){
-        if(gm.isPaused() == true){
-            gm.pauseGame();
+        if(gameManager.isPaused() == true){
+            gameManager.pauseGame();
             FindObjectOfType<AudioManager>().Play("Button");
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;

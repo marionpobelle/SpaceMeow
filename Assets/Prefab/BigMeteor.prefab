@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bb40b1b1f525c14c829b39fe34f5c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rg: {fileID: 2414603811582157268}
+  rigidbodyMeteor: {fileID: 2414603811582157268}
   max_speed: 3000
   HP: 5
   anim: {fileID: 2367891193398739697}
+  damage: 0
 --- !u!95 &2367891193398739697
 Animator:
   serializedVersion: 4
@@ -187,4 +188,3 @@ MonoBehaviour:
   lowHealth: {fileID: 21300000, guid: 9bee75cadf732594e8dc6bdf93ef98c6, type: 3}
   mediumHealth: {fileID: 21300000, guid: 9927ead86feb30e449012c628f0c844b, type: 3}
   fullHealth: {fileID: 21300000, guid: f306d61d8ff865345b6cf951797f2ad4, type: 3}
-  tempSprite: {fileID: 0}

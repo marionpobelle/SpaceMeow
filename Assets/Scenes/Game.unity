@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a4f89d82ad3f041933c76d1d43d5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pm: {fileID: 1295719220}
+  pauseMenu: {fileID: 0}
   numberOfMeteors: 20
   score: 0
   enemies:
@@ -1316,7 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc165673200e534d9c203476fb2f4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 614383977}
+  gameManager: {fileID: 614383977}
   scoreText: {fileID: 953861447}
 --- !u!114 &953861447
 MonoBehaviour:
@@ -1927,7 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1295719219}
-  gm: {fileID: 614383977}
+  gameManager: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: b327589bc20237d449f47167a23bb77d, type: 2}
 --- !u!114 &1295719221
 MonoBehaviour:
@@ -2069,6 +2069,11 @@ PolygonCollider2D:
       - {x: 0.26, y: -0.24}
       - {x: 0.41, y: -0.19}
       - {x: 0.58, y: -0.04}
+--- !u!50 &1373357620 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5604180057958626282, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+  m_PrefabInstance: {fileID: 5604180059270706627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1406477517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5604180058818395166, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
@@ -2094,6 +2099,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &1406477521 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5604180058818395169, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+  m_PrefabInstance: {fileID: 5604180059270706627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1414152994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3723,6 +3733,18 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 614383977}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: rigidbodyPlayer
+      value: 
+      objectReference: {fileID: 1373357620}
+    - target: {fileID: 5604180057958626287, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: polygonCollider2d
+      value: 
+      objectReference: {fileID: 1373357618}
     - target: {fileID: 5604180057958626291, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -3767,6 +3789,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1406477519}
+    - target: {fileID: 5604180058818395165, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: rigidbodyArrow
+      value: 
+      objectReference: {fileID: 1406477521}
     - target: {fileID: 5604180058818395166, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3795,6 +3821,14 @@ PrefabInstance:
       propertyPath: fireSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5604180058818395170, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 614383977}
+    - target: {fileID: 5604180058818395170, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: playerBehavior
+      value: 
+      objectReference: {fileID: 1373357612}
     - target: {fileID: 5604180058818395171, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0236

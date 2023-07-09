@@ -8,7 +8,7 @@ public class StarTrigger : Bonus
     GameObject player;
 
     //Reference to PlayerBehavior
-    PlayerBehavior playerB;
+    PlayerBehavior playerBehavior;
 
 
     /***
@@ -17,7 +17,7 @@ public class StarTrigger : Bonus
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerB = player.GetComponent<PlayerBehavior>();
+        playerBehavior = player.GetComponent<PlayerBehavior>();
         ShowAndHide(6f);                                          
     }
 
@@ -30,8 +30,8 @@ public class StarTrigger : Bonus
         if(other.gameObject.tag == "Player") {  
             //Play button sound
             FindObjectOfType<AudioManager>().PlayOneShot("Star");
-            playerB.anim.SetTrigger("Player_Star");   
-            playerB.Invulnerability(5f, true);
+            playerBehavior.anim.SetTrigger("Player_Star");   
+            playerBehavior.Invulnerability(5f, true);
             //Destroy Object
             Destroy(gameObject);
         }

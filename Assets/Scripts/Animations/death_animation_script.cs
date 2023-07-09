@@ -18,20 +18,20 @@ public class death_animation_script : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        rb.constraints = RigidbodyConstraints2D.FreezePosition;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Rigidbody2D rigidbody = player.GetComponent<Rigidbody2D>();
+        rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        PlayerBehavior playerB = player.GetComponent<PlayerBehavior>();
-        playerB.ResetPlayer();
-        rb.constraints = RigidbodyConstraints2D.None;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        playerB.death_anim = false;
+        Rigidbody2D rigidbody = player.GetComponent<Rigidbody2D>();
+        PlayerBehavior playerBehavior = player.GetComponent<PlayerBehavior>();
+        playerBehavior.ResetPlayer();
+        rigidbody.constraints = RigidbodyConstraints2D.None;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerBehavior.death_anim = false;
     }
 }

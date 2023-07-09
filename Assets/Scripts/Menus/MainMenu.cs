@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public TMPro.TMP_Dropdown dropdown;
 
     /***
-    Make sure the displayed dropdown value is the state of the screen.
+    Makes sure the displayed dropdown value is the state of the screen.
     ***/
     void Awake(){
         if(Screen.fullScreen == true) dropdown.value = 0;

@@ -5,7 +5,7 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     //Reference to Game manager
-    public GameManager gm;
+    public GameManager gameManager;
 
     //Text displayed on canvas
     public TextMeshProUGUI scoreText;
@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
     Update is called every frame, if the MonoBehaviour is enabled.
     ***/
     void Update(){   
-        string final = "score : " + gm.score.ToString("0");
-        scoreText.SetText(final);
+        string finalDisplay = "score : " + gameManager.score.ToString("0");
+        scoreText.SetText(finalDisplay);
     }
 }

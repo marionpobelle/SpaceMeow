@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     //Reference to the controls menu
-    public ControlsMenu cm;
+    public ControlsMenu controlsMenu;
 
     /***
     Start the game upon clicking a start game button.
@@ -27,7 +27,7 @@ public class Buttons : MonoBehaviour
     ***/
     public void Controls(){
         FindObjectOfType<AudioManager>().Play("Button");
-        cm.Open();
+        controlsMenu.Open();
     }
 
     /***    

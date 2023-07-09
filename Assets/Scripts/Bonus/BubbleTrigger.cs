@@ -8,7 +8,7 @@ public class BubbleTrigger : Bonus
     GameObject player;
 
     //Reference to PlayerBehavior
-    PlayerBehavior playerB;
+    PlayerBehavior playerBehavior;
 
     //Bubble animation
     public Animator anim;
@@ -20,7 +20,7 @@ public class BubbleTrigger : Bonus
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerB = player.GetComponent<PlayerBehavior>();
+        playerBehavior = player.GetComponent<PlayerBehavior>();
         ShowAndHide(6f);                                          
     }
 
@@ -36,8 +36,8 @@ public class BubbleTrigger : Bonus
             GameObject[] objects = GameObject.FindGameObjectsWithTag("Enemy");
             int objectCount = objects.Length;
             for(int i=0; i<objectCount;i++){
-                if(objects[i].name == "BigMeteor") objects[i].GetComponent<BigMBehavior>().animDest();
-                if(objects[i].name == "TinyMeteor") objects[i].GetComponent<SmallMBehavior>().animDest();
+                if(objects[i].name == "BigMeteor") objects[i].GetComponent<BigMeteorBehavior>().animDest();
+                if(objects[i].name == "TinyMeteor") objects[i].GetComponent<SmallMeteorBehavior>().animDest();
             }
         }
     }

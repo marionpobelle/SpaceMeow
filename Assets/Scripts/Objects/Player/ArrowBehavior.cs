@@ -6,7 +6,7 @@ public class ArrowBehavior : MonoBehaviour
     public Transform playerPos;
 
     //Arrow rigidbody2D
-    public Rigidbody2D rb;
+    public Rigidbody2D rigidbodyArrow;
 
     //Main camera
     public Camera cam;
@@ -26,10 +26,10 @@ public class ArrowBehavior : MonoBehaviour
         //Match the arrow position to the player
         transform.position = playerPos.position;
         //Make the firepoint follow the cursor
-        Vector2 lookDir = mousePos - new Vector2(playerPos.position[0], playerPos.position[1]);
+        Vector2 lookDirection = mousePos - new Vector2(playerPos.position[0], playerPos.position[1]);
         //Compute the angle
-        float angle = Mathf.Atan2(lookDir.y,lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        float angle = Mathf.Atan2(lookDirection.y,lookDirection.x) * Mathf.Rad2Deg - 90f;
+        rigidbodyArrow.rotation = angle;
     }
 
     /***
