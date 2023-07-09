@@ -2,42 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HP_trigger : MonoBehaviour
+public class HP_trigger : Bonus
 {
-    //Reference to player
-    GameObject player;
+    //Reference to the HP bar
+    public GameObject HPbar;
 
     /***
     Start is called before the first frame update.
     ***/
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        HPbar = GameObject.FindGameObjectWithTag("HPBAR");
         ShowAndHide(6f);                                          
     }
-
-    //Used to test if the coroutines is already executing
-    private bool isCoroutineExecuting = false;
-
-    /***
-    Make the HP bonus disappear after 6 seconds.
-    @param time : amount of seconds.
-    ***/
-    private void ShowAndHide(float time) {
-        StartCoroutine(ShowAndHideDelay(time));
-    }
-    /***
-    Create a subroutine that make the bonus disappear after a certain amount of seconds
-    @param delay : amount of seconds.
-    ***/
-    IEnumerator ShowAndHideDelay(float delay)
-     {
-        if (isCoroutineExecuting) yield break;
-        isCoroutineExecuting = true;
-        yield return new WaitForSeconds(delay);
-        isCoroutineExecuting = false;
-        Destroy(gameObject);
-     }
 
     /***
     Behavior upon collision.
@@ -47,7 +24,7 @@ public class HP_trigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player") {  
             FindObjectOfType<AudioManager>().Play("HPup");   
-            if(player.GetComponent<Health>().HP < player.GetComponent<Health>().maxHealth) player.GetComponent<Health>().IncreaseHP(1);
+            if(HPbar.GetComponent<Health>().HP < HPbar.GetComponent<Health>().maxHealth) HPbar.GetComponent<Health>().IncreaseHP(1);
             Destroy(gameObject);
         }
     }
