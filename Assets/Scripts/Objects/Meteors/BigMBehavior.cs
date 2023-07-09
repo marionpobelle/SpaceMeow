@@ -2,19 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BigMBehavior : MonoBehaviour
+public class BigMBehavior : Meteor
 {
-    //Object rigidbody2D
-    public Rigidbody2D rg;
     
-    //Direction speed
-    float speed;
-
-    //Maximum speed
-    public float max_speed;
-
-    //Object HP
-    public int HP;
 
     //Random initial directions
     int x_rd;
@@ -23,13 +13,11 @@ public class BigMBehavior : MonoBehaviour
     //Object direction
     Vector2 mainDir;
 
-    //Meteor animator
-    public Animator anim;
-
     /***
     Start is called before the first frame update.
     ***/
     void Start(){
+        damage = 2;
         x_rd = Random.Range(0,2)*2-1;
         y_rd = Random.Range(0,2)*2-1;
         //Random starting speed
@@ -64,37 +52,6 @@ public class BigMBehavior : MonoBehaviour
         if(collision.collider.tag == "Player") {
             animDest();
         }
-    }
-
-    /***
-    Behavior upon leaving screen view.
-    Delete Object to save space.
-    ***/
-    void OnBecameInvisible(){
-        Destroy(gameObject);
-    }
-
-    /***
-    Lowers meteor HP.
-    ***/
-    public void lowerHP(){
-        HP-=1;
-    }
-
-    /***
-    Plays the destruction animation for the meteor.
-    ***/
-    public void animDest(){
-        anim.enabled = true;
-        anim.SetTrigger("destruction");
-        
-    }
-
-    /***
-    Gets meteor HP.
-    ***/
-    public int GetHP(){
-        return HP;
     }
 
 }

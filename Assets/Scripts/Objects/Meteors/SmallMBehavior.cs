@@ -2,19 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallMBehavior : MonoBehaviour
+public class SmallMBehavior : Meteor
 {
-    //Object rigidbody2D
-    public Rigidbody2D rg;
-
-    //Direction speed
-    float speed;
-
-    //Maximum speed
-    public float max_speed;
-
-    //Object HP
-    public int HP;
 
     //Offset so the object spawn going +-towards the player
     public float dirOffset;
@@ -25,13 +14,11 @@ public class SmallMBehavior : MonoBehaviour
     //Object direction
     Vector2 mainDir;
 
-    //Rock animator
-    public Animator anim;
-
     /***
     Start is called before the first frame update.
     ***/
     void Start(){
+        damage = 1;
         player = GameObject.FindGameObjectWithTag("Player");
         Rigidbody2D rgPlayer = player.GetComponent<Rigidbody2D>();
         Vector2 directionTowardPlayer = rgPlayer.position - rg.position;
@@ -66,36 +53,6 @@ public class SmallMBehavior : MonoBehaviour
         if(collision.collider.tag == "Player") {
             animDest();
         }
-    }
-
-    /***
-    Behavior upon leaving screen view.
-    Delete Object to save space.
-    ***/
-    void OnBecameInvisible(){
-        Destroy(gameObject);
-    }
-
-    /***
-    Lowers meteor HP.
-    ***/
-    public void lowerHP(){
-        HP-=1;
-    }
-
-    /***
-    Plays the destruction animation for the meteor.
-    ***/
-    public void animDest(){
-        anim.enabled = true;
-        anim.SetTrigger("destruction");
-    }
-
-    /***
-    Gets meteor HP.
-    ***/
-    public int GetHP(){
-        return HP;
     }
 
 }

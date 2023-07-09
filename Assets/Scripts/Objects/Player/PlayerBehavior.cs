@@ -110,34 +110,32 @@ public class PlayerBehavior : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if(collision.collider.tag == "Enemy") {
-            if(HPbar.GetComponent<Health>().HP > 0){
-                if(collision.collider.name == "BigMeteor"){
-                    HPbar.GetComponent<Health>().LowerHP(2);
-                }
-                else if(collision.collider.name == "TinyMeteor"){
-                    HPbar.GetComponent<Health>().LowerHP(1);
-                }
-                if(HPbar.GetComponent<Health>().HP <= 0){ 
-                    //If we lose all of our HP we lose a life
-                    lifeBar.GetComponent<Life>().LowerLifes();
-                    if(lifeBar.GetComponent<Life>().lifes <= 0) {
-                        Debug.Log("Game is lost !");
-                        gm.gameLost();
+            Meteor meteor = collision.gameObject.GetComponent<Meteor>();
+            if(meteor != null){
+                if(HPbar.GetComponent<Health>().HP > 0){
+                    HPbar.GetComponent<Health>().LowerHP(meteor.damage);
+                    if(HPbar.GetComponent<Health>().HP <= 0){ 
+                        //If we lose all of our HP we lose a life
+                        lifeBar.GetComponent<Life>().LowerLifes();
+                        if(lifeBar.GetComponent<Life>().lifes <= 0) {
+                            Debug.Log("Game is lost !");
+                            gm.gameLost();
+                        }
+                        else{
+                            death_anim = true;
+                            Invulnerability(3f, false);
+                            anim.SetTrigger(name: "Player_Dead");
+                        }
                     }
                     else{
-                        death_anim = true;
-                        Invulnerability(3f, false);
-                        anim.SetTrigger(name: "Player_Dead");
+                        Invulnerability(2f, false);
+                        FindObjectOfType<ArrowBehavior>().Pulse();
+                        FindObjectOfType<AudioManager>().Play("DamageTaken");
+                        rb.constraints = RigidbodyConstraints2D.None;
+                        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
-                else{
-                    Invulnerability(2f, false);
-                    FindObjectOfType<ArrowBehavior>().Pulse();
-                    FindObjectOfType<AudioManager>().Play("DamageTaken");
-                    rb.constraints = RigidbodyConstraints2D.None;
-                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                }
-            } 
+            }
         }  
     }
 
