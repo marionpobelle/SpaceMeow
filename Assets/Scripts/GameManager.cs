@@ -50,10 +50,23 @@ public class GameManager : MonoBehaviour
     //Indicate if it's the first wave
     bool firstWave = true;
 
+    //Indicate the current mode : 0 for story, 1 for endless;
+    int currentMode;
+
     /***
     Start is called before the first frame update.
     ***/
     void Start(){
+        Scene currentScene = SceneManager.GetActiveScene ();
+        if(currentScene.name == "Story"){
+            PlayerPrefs.SetInt("Mode", 0);
+            PlayerPrefs.Save();
+        }
+        else{
+            PlayerPrefs.SetInt("Mode", 1);
+            PlayerPrefs.Save();
+        }
+
         FindObjectOfType<AudioManager>().Play("Theme");
         //Get the highscore from player prefs if it is there, 0 otherwise
         highScore = PlayerPrefs.GetInt("HighScore", 0);

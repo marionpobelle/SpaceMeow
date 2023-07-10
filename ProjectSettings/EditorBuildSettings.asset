@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a70440262d0a73a43bf1b2861e6e2b27
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 3c038fd29a8eac046be5ba5dfb30b2ae
+    path: Assets/Scenes/Story.unity
+    guid: 5b8b3d4a9a35a0646a392046c179de84
+  - enabled: 1
+    path: Assets/Scenes/Endless.unity
+    guid: dc6ecda23fe82f64ea0066274d30827b
   - enabled: 1
     path: Assets/Scenes/LosingScreen.unity
     guid: d307b593a83dbd743ab498c20e7b1da7

@@ -11,7 +11,15 @@ public class Buttons : MonoBehaviour
     ***/
     public void StartGame(){
         FindObjectOfType<AudioManager>().Play("Button");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Story");
+    }
+
+    /***
+    Start the game in endless mode upon clicking an endless button.
+    ***/
+    public void StartEndless(){
+        FindObjectOfType<AudioManager>().Play("Button");
+        SceneManager.LoadScene("Endless");
     }
 
     /***    

@@ -26,7 +26,25 @@ public class EndScreenButtons : MonoBehaviour
     ***/
     public void StartGame(){
         FindObjectOfType<AudioManager>().Play("Button");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Story");
+    }
+
+    /***
+    Start the game in endless mode upon clicking an endless button.
+    ***/
+    public void StartEndless(){
+        FindObjectOfType<AudioManager>().Play("Button");
+        SceneManager.LoadScene("Endless");
+    }
+
+    /***
+    Restart the game upon clicking a restart button in the mode that was previously chosen by the player.
+    ***/
+    public void RestartGame(){
+        FindObjectOfType<AudioManager>().Play("Button");
+        int currentMode = PlayerPrefs.GetInt("Mode", 0);
+        if(currentMode == 0) SceneManager.LoadScene("Story");
+        else SceneManager.LoadScene("Endless");
     }
 
     /***
