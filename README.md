@@ -52,14 +52,14 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 
 # TDL
 
-- [ ] MAIN MENU
+- [x] MAIN MENU
 - - [x] Background sprite
 - - [x] Start button + sprite
 - - [x] Quit button + sprite
 - - [x] Controls button + sprite
 - - [x] Controls menu + sprite
 - - [x] Music
-- - [ ] Windowed/Fullscreen dropdown + sprite
+- - [x] Windowed/Fullscreen dropdown + sprite
 
 - [ ] GAME
 - - [x] Background sprite
@@ -69,6 +69,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Asteroids spawn out of sight
 - - [x] Score increasing upon destroying asteroids
 - - [x] Screen bounds preventing the player from leaving the screen view
+- - [x] Endless and Story modes
 - - [ ] Difficulty scaling
 
 - [x] PLAYER
@@ -100,11 +101,11 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Bubble : sound feedback + effect + animation
 - - [x] Star : sound feedback + effect + animation
 
-- [ ] PAUSE MENU
+- [x] PAUSE MENU
 - - [x] Background sprite
 - - [x] Resume button + sprite
 - - [x] Main menu button + sprite
-- - [ ] Sliders for sound + sprites
+- - [x] Sliders for sound + sprites
 - - [x] Display current score and highscore
 
 - [x] ENDING SCREEN
@@ -119,5 +120,6 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Music
 
 - [ ] BOSS
-- - [ ] Find music
-- - [ ] Brainstorm boss implementation
+- - [x] Code Implementation
+- - [ ] Sprites : Self, Idle animation, Attack, Death, Damage taken, HP bar
+- - [ ] Sounds : Spawn, Death, Music, Attack, Damage taken
