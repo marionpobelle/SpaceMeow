@@ -52,6 +52,22 @@ public class Bullet : MonoBehaviour {
                     }
             }
         }
+        if(other.gameObject.tag == "Boss"){
+            if(gameManager.isBossfightHappening == true){
+                gameManager.bossHPbar.GetComponent<JellyfishHealth>().LowerHP(1);
+                float bossHP = gameManager.bossHPbar.GetComponent<JellyfishHealth>().GetHP();
+                if(bossHP <= 0){
+                    gameManager.SetBossDead();
+                    gameManager.StopBossfight();
+                    other.GetComponent<JellyfishMovement>().BossDeathSequence();
+                    Debug.Log("Boss is dead");
+                        
+                }else{
+                    FindObjectOfType<AudioManager>().Play("BossHit");
+                    anim.SetTrigger("hit");
+                }
+            }
+        }
     }
 
     /***

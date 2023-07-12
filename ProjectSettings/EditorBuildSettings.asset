@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Endless.unity
     guid: dc6ecda23fe82f64ea0066274d30827b
   - enabled: 1
-    path: Assets/Scenes/LosingScreen.unity
+    path: Assets/Scenes/EndScreen.unity
     guid: d307b593a83dbd743ab498c20e7b1da7
   m_configObjects: {}

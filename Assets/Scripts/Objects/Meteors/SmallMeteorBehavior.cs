@@ -53,6 +53,9 @@ public class SmallMeteorBehavior : Meteor
         if(collision.collider.tag == "Player") {
             animDest();
         }
+        if(collision.collider.tag == "Boss") {
+            animDest();
+        }
     }
 
 }

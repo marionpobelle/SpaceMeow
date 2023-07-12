@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     //Reference to PauseMenu
     public PauseMenu pauseMenu;
 
+    //Reference to the boss HP bar
+    public GameObject bossHPbar;
+
     //Amount of meteors spawned each waves
     public int numberOfMeteors = 20;
 
@@ -25,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     //List containing different types of bonuses to spawn
     public List<GameObject> bonuses;
+
+    //Boss
+    public GameObject jellyfish;
 
     //Axis coords to randomize the spawn of each enemy
     public float min_x = -9;
@@ -53,6 +59,18 @@ public class GameManager : MonoBehaviour
     //Indicate the current mode : 0 for story, 1 for endless;
     int currentMode;
 
+    //Indicate if the bossfight cutscene started
+    bool isBossCutsceneHappening = false;
+
+    //Indicate if the bossfight started
+    public bool isBossfightHappening = false;
+
+    //Is the boss theme playing
+    bool bossThemePlaying = false;
+
+    //Is the boss dead ?
+    public bool isBossDead = false;
+
     /***
     Start is called before the first frame update.
     ***/
@@ -68,7 +86,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
             currentMode = 1;
         }
-
+        bossHPbar.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Theme");
         //Get the highscore from player prefs if it is there, 0 otherwise
         highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -76,14 +94,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        //Change difficulty in relation to the score
-        if(currentMode == 1 && score < 25 && numberOfMeteors != 4) numberOfMeteors = 4;
-        if(currentMode == 1 && score >= 25 && score < 50 && numberOfMeteors != 5) numberOfMeteors = 5;
-        if(currentMode == 1 && score >= 50 && score < 100 && numberOfMeteors != 8) numberOfMeteors = 8;
-        if(currentMode == 1 && score >= 100 && score < 200 && numberOfMeteors != 10) numberOfMeteors = 10;
-        if(currentMode == 1 && score >= 200 && score < 500 && numberOfMeteors != 15) numberOfMeteors = 15;
-        if(currentMode == 1 && score >= 500 && score < 800 && numberOfMeteors != 20) numberOfMeteors = 20;
-        if(currentMode == 1 && score >= 800) numberOfMeteors = Random.Range(20,28);
         //Set up the spawn timers
         if(bonusTime == 0f){
             bonusTime = Random.Range(10f, 15f);
@@ -91,28 +101,77 @@ public class GameManager : MonoBehaviour
         if(spawnTime == 0f){
             spawnTime = Random.Range(2f, 8f);
         }
-
-        //Spawn enemies
         timerBetweenEnemyWaves += Time.deltaTime;
-        if(timerBetweenEnemyWaves >= spawnTime){
-            EnemiesSpawner();
-            timerBetweenEnemyWaves = 0f;
-            spawnTime = 0f;
-        }
-        //Spawn bonuses
         timerBetweenBonus += Time.deltaTime;
-        if(timerBetweenBonus >= bonusTime){
-            BonusSpawner();
-            FindObjectOfType<AudioManager>().Play("BonusSpawn");
-            timerBetweenBonus = 0f;
-            bonusTime = 0f;
+
+        //Spawn the boss and prevent the meteor from spawning if the player reaches 200 points in story mode
+        if(score >= 200 && currentMode == 0 && isBossCutsceneHappening == false)
+        {
+            FindObjectOfType<AudioManager>().Stop("Theme");
+            FindObjectOfType<AudioManager>().Play("BossThemeFadeIn");
+            isBossCutsceneHappening = true;
+            numberOfMeteors = 0;
+            FindObjectOfType<AudioManager>().Play("BossSpawn");
+            BossSpawner();
         }
-        //Check if the Pause key is pressed
-        if(Input.GetKey(KeyCode.Escape)){
-            FindObjectOfType<AudioManager>().Play("Button");
-            SetScore();
-            pauseMenu.Pause();
-        } 
+        else if(isBossCutsceneHappening == true)
+        {
+            //Spawn bonuses
+            if(timerBetweenBonus >= bonusTime){
+
+                //
+                //Select a random bonus type
+                int randomNumber = Random.Range(0,bonuses.Count-1);
+                //Select random coords in game screen
+                Vector2 randomSpawn = new Vector2(Random.Range(min_x,max_x),Random.Range(min_y,max_y));
+                GameObject clone = Instantiate(bonuses[randomNumber], randomSpawn, Quaternion.identity);
+                clone.name = bonuses[randomNumber].name;
+                //
+
+                FindObjectOfType<AudioManager>().Play("BonusSpawn");
+                timerBetweenBonus = 0f;
+                bonusTime = 0f;
+            }
+            if(FindObjectOfType<AudioManager>().isPlaying("BossThemeFadeIn") == false && bossThemePlaying == false) {
+                bossThemePlaying = true;
+                FindObjectOfType<AudioManager>().Play("BossTheme");
+            }
+
+                
+        }
+        else
+        {
+            //Change difficulty in relation to the score
+            if(currentMode == 1 && score < 25 && numberOfMeteors != 4) numberOfMeteors = 4;
+            if(currentMode == 1 && score >= 25 && score < 50 && numberOfMeteors != 5) numberOfMeteors = 5;
+            if(currentMode == 1 && score >= 50 && score < 100 && numberOfMeteors != 8) numberOfMeteors = 8;
+            if(currentMode == 1 && score >= 100 && score < 200 && numberOfMeteors != 10) numberOfMeteors = 10;
+            if(currentMode == 1 && score >= 200 && score < 500 && numberOfMeteors != 15) numberOfMeteors = 15;
+            if(currentMode == 1 && score >= 500 && score < 800 && numberOfMeteors != 20) numberOfMeteors = 20;
+            if(currentMode == 1 && score >= 800) numberOfMeteors = Random.Range(20,28);
+
+            //Spawn enemies
+            
+            if(timerBetweenEnemyWaves >= spawnTime){
+                EnemiesSpawner();
+                timerBetweenEnemyWaves = 0f;
+                spawnTime = 0f;
+            }
+            //Spawn bonuses
+            if(timerBetweenBonus >= bonusTime){
+                BonusSpawner();
+                FindObjectOfType<AudioManager>().Play("BonusSpawn");
+                timerBetweenBonus = 0f;
+                bonusTime = 0f;
+            }
+            //Check if the Pause key is pressed
+            if(Input.GetKey(KeyCode.Escape)){
+                FindObjectOfType<AudioManager>().Play("Button");
+                SetScore();
+                pauseMenu.Pause();
+            }
+        }
+         
     }
 
     // SPAWNERS //
@@ -169,6 +228,17 @@ public class GameManager : MonoBehaviour
         clone.name = bonuses[randomNumber].name;
     }
 
+    /***
+    Boss spawner.
+    Spawn the Boss when player reaches 200 points.
+    ***/
+    void BossSpawner(){
+        //Select random coords in game screen
+        Vector2 bossSpawn = new Vector2(((min_x + max_x)/2),(max_y + 2));
+        GameObject clone = Instantiate(jellyfish, bossSpawn, Quaternion.identity);
+        clone.name = jellyfish.name;
+    }
+
     // MENUS //
 
     /***
@@ -193,7 +263,18 @@ public class GameManager : MonoBehaviour
     public void gameLost(){
         SetHighscore();
         SetScore();
-        SceneManager.LoadScene("LosingScreen");
+        SceneManager.LoadScene("EndScreen");
+    }
+
+    /***
+    Behavior upon losing.
+    Load the losing screen.
+    ***/
+    public void GameWon(){
+        SetHighscore();
+        SetScore();
+        PlayerPrefs.SetInt("bossDefeated", 1);
+        SceneManager.LoadScene("EndScreen");
     }
 
     // SCORES //
@@ -228,5 +309,26 @@ public class GameManager : MonoBehaviour
     public void SetScore(){
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.Save();
+    }
+
+    /***
+    Indicate that the bossfight started.
+    ***/
+    public void SetBossfightStart(){
+        isBossfightHappening = true;
+    }
+
+    /***
+    Indicate that the bossfight started.
+    ***/
+    public void StopBossfight(){
+        isBossfightHappening = false;
+    }
+
+    /***
+    Indicate that the boss is dead.
+    ***/
+    public void SetBossDead(){
+        isBossDead = true;
     }
 }

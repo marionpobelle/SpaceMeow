@@ -9,6 +9,9 @@ TagManager:
   - HP
   - AudioM
   - HPBAR
+  - GameManager
+  - Boss
+  - BossHP
   layers:
   - Default
   - TransparentFX

@@ -136,7 +136,33 @@ public class PlayerBehavior : MonoBehaviour
                     }
                 }
             }
-        }  
+        }
+        else if(collision.collider.tag == "Boss")
+        {
+            if(HPbar.GetComponent<Health>().HP > 0){
+                    HPbar.GetComponent<Health>().LowerHP(2);
+                    if(HPbar.GetComponent<Health>().HP <= 0){ 
+                        //If we lose all of our HP we lose a life
+                        lifeBar.GetComponent<Life>().LowerLifes();
+                        if(lifeBar.GetComponent<Life>().lifes <= 0) {
+                            Debug.Log("Game is lost !");
+                            gameManager.gameLost();
+                        }
+                        else{
+                            death_anim = true;
+                            Invulnerability(3f, false);
+                            anim.SetTrigger(name: "Player_Dead");
+                        }
+                    }
+                    else{
+                        Invulnerability(2f, false);
+                        FindObjectOfType<ArrowBehavior>().Pulse();
+                        FindObjectOfType<AudioManager>().Play("DamageTaken");
+                        rigidbodyPlayer.constraints = RigidbodyConstraints2D.None;
+                        rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    }
+                }
+        } 
     }
 
     /***
