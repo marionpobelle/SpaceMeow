@@ -61,7 +61,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Music
 - - [x] Windowed/Fullscreen dropdown + sprite
 
-- [ ] GAME
+- [x] GAME
 - - [x] Background sprite
 - - [x] Music
 - - [x] UI for HP and Lifes + sprites
@@ -70,7 +70,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Score increasing upon destroying asteroids
 - - [x] Screen bounds preventing the player from leaving the screen view
 - - [x] Endless and Story modes
-- - [ ] Difficulty scaling
+- - [x] Difficulty scaling
 
 - [x] PLAYER
 - - [x] HP and Lifes system
