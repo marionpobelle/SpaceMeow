@@ -121,10 +121,10 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 
 - [ ] BOSS
 - - [ ] Code Implementation
-- - - [ ] Movement
+- - - [x] Movement
 - - - [ ] Attack
-- - - [ ] Spawn
-- - - [ ] Damage Taken
-- - - [ ] Death
+- - - [x] Spawn
+- - - [x] Damage Taken
+- - - [x] Death
 - - [x] Sprites : Self, Idle animation, Attack, Death, Damage taken, HP bar
 - - [x] Sounds : Spawn, Death, Music, Attack, Damage taken
