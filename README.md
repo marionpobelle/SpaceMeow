@@ -120,6 +120,6 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Music
 
 - [ ] BOSS
-- - [x] Code Implementation
+- - [ ] Code Implementation
 - - [ ] Sprites : Self, Idle animation, Attack, Death, Damage taken, HP bar
 - - [ ] Sounds : Spawn, Death, Music, Attack, Damage taken
