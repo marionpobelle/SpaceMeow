@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public PauseMenu pauseMenu;
 
     //Amount of meteors spawned each waves
-    public int numberOfMeteors;
+    public int numberOfMeteors = 20;
 
     //Max time between each wave
     float spawnTime = 0f;
@@ -61,10 +61,12 @@ public class GameManager : MonoBehaviour
         if(currentScene.name == "Story"){
             PlayerPrefs.SetInt("Mode", 0);
             PlayerPrefs.Save();
+            currentMode = 0;
         }
         else{
             PlayerPrefs.SetInt("Mode", 1);
             PlayerPrefs.Save();
+            currentMode = 1;
         }
 
         FindObjectOfType<AudioManager>().Play("Theme");
@@ -74,6 +76,14 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
+        //Change difficulty in relation to the score
+        if(currentMode == 1 && score < 25 && numberOfMeteors != 4) numberOfMeteors = 4;
+        if(currentMode == 1 && score >= 25 && score < 50 && numberOfMeteors != 5) numberOfMeteors = 5;
+        if(currentMode == 1 && score >= 50 && score < 100 && numberOfMeteors != 8) numberOfMeteors = 8;
+        if(currentMode == 1 && score >= 100 && score < 200 && numberOfMeteors != 10) numberOfMeteors = 10;
+        if(currentMode == 1 && score >= 200 && score < 500 && numberOfMeteors != 15) numberOfMeteors = 15;
+        if(currentMode == 1 && score >= 500 && score < 800 && numberOfMeteors != 20) numberOfMeteors = 20;
+        if(currentMode == 1 && score >= 800) numberOfMeteors = Random.Range(20,28);
         //Set up the spawn timers
         if(bonusTime == 0f){
             bonusTime = Random.Range(10f, 15f);
@@ -81,6 +91,7 @@ public class GameManager : MonoBehaviour
         if(spawnTime == 0f){
             spawnTime = Random.Range(2f, 8f);
         }
+
         //Spawn enemies
         timerBetweenEnemyWaves += Time.deltaTime;
         if(timerBetweenEnemyWaves >= spawnTime){

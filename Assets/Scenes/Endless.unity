@@ -683,9 +683,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00020650029
+    x: 0.00015616417
     y: 0
-    width: 0.999587
+    width: 0.9996877
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a4f89d82ad3f041933c76d1d43d5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1295719220}
   numberOfMeteors: 20
   score: 0
   enemies:
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1295719219}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 614383977}
   audioMixer: {fileID: 24100000, guid: b327589bc20237d449f47167a23bb77d, type: 2}
 --- !u!114 &1295719221
 MonoBehaviour:
