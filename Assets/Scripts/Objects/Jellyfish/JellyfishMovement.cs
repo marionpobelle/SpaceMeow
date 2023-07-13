@@ -24,6 +24,10 @@ public class JellyfishMovement : MonoBehaviour
 
     public Animator anim;
 
+    public Vector2 direction = new Vector2(1, 0);
+
+    public float angle;
+
     private Vector2 currentDestination;
     // Start is called before the first frame update
     void Start()
@@ -54,9 +58,9 @@ public class JellyfishMovement : MonoBehaviour
             currentDestination = new Vector2(Random.Range(gameManager.min_x + offset,gameManager.max_x - offset),Random.Range(gameManager.min_y + offset,gameManager.max_y - offset));
         }
         //Determine where the player is for the shooting angle
-        Vector2 direction = (Vector2)player.transform.position - (Vector2)transform.position;
+        direction = (Vector2)player.transform.position - (Vector2)transform.position;
         direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Moves the jellyfish towards its current destination
         MoveJellyfish();
