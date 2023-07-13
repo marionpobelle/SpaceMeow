@@ -119,10 +119,10 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Save highscore between sessions
 - - [x] Music
 
-- [ ] BOSS
-- - [ ] Code Implementation
+- [x] BOSS
+- - [x] Code Implementation
 - - - [x] Movement
-- - - [ ] Attack
+- - - [x] Attack
 - - - [x] Spawn
 - - - [x] Damage Taken
 - - - [x] Death
