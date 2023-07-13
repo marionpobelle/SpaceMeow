@@ -548,9 +548,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00010046363
+    x: 0
     y: 0
-    width: 0.9997991
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1295719219}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 614383977}
   audioMixer: {fileID: 24100000, guid: b327589bc20237d449f47167a23bb77d, type: 2}
 --- !u!114 &1295719221
 MonoBehaviour:

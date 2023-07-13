@@ -1138,9 +1138,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.00025826693
+    y: 0
     width: 1
-    height: 0.99948347
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1981,7 +1981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4a168fdc52fbe42850d1e6b9ae9826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlsMenu: {fileID: 0}
+  controlsMenu: {fileID: 129202250}
 --- !u!114 &1316942117
 MonoBehaviour:
   m_ObjectHideFlags: 0
