@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     //List containing different types of bonuses to spawn
     public List<GameObject> bonuses;
 
-    //Boss
+    //Boss 1
     public GameObject jellyfish;
 
     //Axis coords to randomize the spawn of each enemy
@@ -59,13 +59,13 @@ public class GameManager : MonoBehaviour
     //Indicate the current mode : 0 for story, 1 for endless;
     int currentMode;
 
-    //Indicate if the bossfight cutscene started
+    //Did the boss cutscene start playing ?
     bool isBossCutsceneHappening = false;
 
-    //Indicate if the bossfight started
+    //Did the bossfight start ?
     public bool isBossfightHappening = false;
 
-    //Is the boss theme playing
+    //Is the boss theme playing ?
     bool bossThemePlaying = false;
 
     //Is the boss dead ?
@@ -80,13 +80,13 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Mode", 0);
             PlayerPrefs.Save();
             currentMode = 0;
+            bossHPbar.SetActive(false);
         }
         else{
             PlayerPrefs.SetInt("Mode", 1);
             PlayerPrefs.Save();
             currentMode = 1;
         }
-        bossHPbar.SetActive(false);
         FindObjectOfType<AudioManager>().Play("Theme");
         //Get the highscore from player prefs if it is there, 0 otherwise
         highScore = PlayerPrefs.GetInt("HighScore", 0);
@@ -310,6 +310,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.Save();
     }
+
+    // BOSS STATE //
 
     /***
     Indicate that the bossfight started.

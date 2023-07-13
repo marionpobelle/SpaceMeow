@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1311658422}
   m_Layer: 7
   m_Name: Boss_attack
-  m_TagString: Shot
+  m_TagString: BossAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc950385c741db542891e5fbed437ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0}
-  speed: 20
-  velocity: {x: 0, y: 0}
+  speed: 8
+  gameManager: {fileID: 0}
+  HPbar: {fileID: 0}
+  lifeBar: {fileID: 0}
+  anim: {fileID: -4030327952362515971}

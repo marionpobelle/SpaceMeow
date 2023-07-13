@@ -25,7 +25,7 @@ public class PlayerBehavior : MonoBehaviour
     //Reference to the HP bar
     public GameObject HPbar;
 
-    //Reference to the fife bar
+    //Reference to the life bar
     public GameObject lifeBar;
 
     //Impulse given after hitting a side of the screen
@@ -104,6 +104,7 @@ public class PlayerBehavior : MonoBehaviour
     /***
     Behavior upon trigger.
     -Meteors
+    -Boss
     @param collision : a collision.
     ***/
     void OnCollisionEnter2D(Collision2D collision){
@@ -161,8 +162,8 @@ public class PlayerBehavior : MonoBehaviour
                         rigidbodyPlayer.constraints = RigidbodyConstraints2D.None;
                         rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezeRotation;
                     }
-                }
-        } 
+            }
+        }
     }
 
     /***

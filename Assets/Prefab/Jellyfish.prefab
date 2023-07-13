@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &536586524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536586525}
+  m_Layer: 6
+  m_Name: FirePointJellyfish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &536586525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536586524}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.06, y: -0.24, z: -15.920108}
+  m_LocalScale: {x: 1.1495156, y: 1.1229298, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1997085180835903523}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997085180835903524
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +45,7 @@ GameObject:
   - component: {fileID: 1997085180835903526}
   - component: {fileID: 1997085180835903527}
   - component: {fileID: 756590511}
+  - component: {fileID: 2124088842}
   m_Layer: 0
   m_Name: Jellyfish
   m_TagString: Boss
@@ -32,7 +64,8 @@ Transform:
   m_LocalPosition: {x: -3.95, y: -0.8, z: 7.960054}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 536586525}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 5d60828394ad6764ebb7ef62dee233dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fe9a4fbaf08a4741b6078c8fbdfe31e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,7 +179,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.02, y: 3.86}
+    oldSize: {x: 4.02, y: 3.84}
     newSize: {x: 4.14, y: 3.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,3 +228,21 @@ MonoBehaviour:
   rigidbodyJellyfish: {fileID: 1997085180835903521}
   offset: 2
   anim: {fileID: 1997085180835903526}
+  direction: {x: 1, y: 0}
+  angle: 0
+--- !u!114 &2124088842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997085180835903524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a118e48e69f644ac8c557c84c6bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  firePoint: {fileID: 536586525}
+  bulletPrefab: {fileID: 704837259745960344, guid: 54a86c03eeda30b49a54f54b6a62fcbb, type: 3}
+  playerDirection: {x: 1, y: 0}

@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour {
     /***
     Behavior upon collision.
     -Meteors
+    -Boss
     @param other : a collider.
     ***/
     void OnTriggerEnter2D(Collider2D other) {

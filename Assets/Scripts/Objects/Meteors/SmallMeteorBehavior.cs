@@ -43,6 +43,7 @@ public class SmallMeteorBehavior : Meteor
     Behavior upon collision.
     -Meteors
     -Player
+    -Boss
     @param collision : a collision
     ***/
     void OnCollisionEnter2D(Collision2D collision) {

@@ -10,15 +10,19 @@ public class JellyfishHealth : MonoBehaviour
     private Image healthBar;
 
     //Maximum HP
-    public float maxHealth = 100;
+    public float maxHealth;
 
     //Current HP
     public float HP;
 
+    void Awake()
+    {
+        HP = maxHealth;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        HP = maxHealth;
         healthBar = GetComponent<Image>();
     }
 

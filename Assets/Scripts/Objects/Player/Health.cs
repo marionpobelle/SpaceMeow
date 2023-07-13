@@ -54,6 +54,9 @@ public class Health : MonoBehaviour
         HP = HP + heal;
     }
 
+    /***
+    Reset the current HP to full.
+    ***/
     public void SetHPFull(){
         HP = maxHealth;
     }

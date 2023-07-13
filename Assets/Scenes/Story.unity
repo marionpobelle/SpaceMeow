@@ -1375,7 +1375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5987ff21f51faae4092a90f7836740f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 200
   HP: 0
 --- !u!1 &953861444
 GameObject:
@@ -2382,7 +2382,7 @@ GameObject:
   - component: {fileID: 1529766392}
   m_Layer: 5
   m_Name: Lifebar
-  m_TagString: Untagged
+  m_TagString: LIFEBAR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3278,7 +3278,7 @@ PrefabInstance:
       objectReference: {fileID: -6493047918017055352, guid: b327589bc20237d449f47167a23bb77d, type: 2}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.size
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -3477,6 +3477,14 @@ PrefabInstance:
       value: GameWon
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
+      propertyPath: sounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83a303e89c9cd7f489e05f7f55ed0ace, type: 3}
+    - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
+      propertyPath: sounds.Array.data[21].name
+      value: BossAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.data[3].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -3569,6 +3577,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
+      propertyPath: sounds.Array.data[21].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.data[2].volume
       value: 0.02
       objectReference: {fileID: 0}
@@ -3649,6 +3661,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
+      propertyPath: sounds.Array.data[21].volume
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.data[2].soundEf
       value: 1
       objectReference: {fileID: 0}
@@ -3710,6 +3726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
       propertyPath: sounds.Array.data[20].soundEf
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5453237246322205802, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
+      propertyPath: sounds.Array.data[21].soundEf
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5453237246322205803, guid: 00aaca420fd70fb47aa50875910b6aff, type: 3}
@@ -3876,6 +3896,14 @@ PrefabInstance:
     - target: {fileID: 5604180057958626291, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604180058361700758, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604180058361700758, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 5604180058361700759, guid: 61e19726c8c4f3640aac5b1ed9218cfe, type: 3}
       propertyPath: m_Layer

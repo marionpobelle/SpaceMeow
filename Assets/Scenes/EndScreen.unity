@@ -437,9 +437,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.00020650029
+    x: 0
     y: 0
-    width: 0.999587
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -670,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &685935142
 RectTransform:
   m_ObjectHideFlags: 0

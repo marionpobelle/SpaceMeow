@@ -6,13 +6,17 @@ using UnityEngine;
 public class JellyfishMovement : MonoBehaviour
 {
 
+    //Jellyfish movement speed
     public float speed;
 
+    //Reference to Game manager
     public GameManager gameManager;
+
+    //Reference to player
     public GameObject player;
 
-    //Is this the first movement ?
-    bool isFirstMovement = true;
+    //Is this the jellyfish's first movement ?
+    public bool isFirstMovement = true;
     
     //Jellyfish rigidbody2D
     public Rigidbody2D rigidbodyJellyfish;
@@ -20,15 +24,21 @@ public class JellyfishMovement : MonoBehaviour
     //Offset from the screenbounds that limits where the jellyfish can go
     public float offset;
 
+    //Distance between the jellyfish and its current destination
     private float distance;
 
+    //Animator for the jellyfish
     public Animator anim;
 
-    public Vector2 direction = new Vector2(1, 0);
+    //Direction towards the player
+    public Vector2 direction;
 
+    //Angle between the current direction and the player
     public float angle;
 
+    //Current destination of the jellyfish
     private Vector2 currentDestination;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +91,5 @@ public class JellyfishMovement : MonoBehaviour
     ***/
     public void BossDeathSequence(){
         anim.SetTrigger("bossDied");
-        //gameManager.GameWon();
     }
 }

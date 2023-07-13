@@ -12,6 +12,8 @@ TagManager:
   - GameManager
   - Boss
   - BossHP
+  - BossAttack
+  - LIFEBAR
   layers:
   - Default
   - TransparentFX
