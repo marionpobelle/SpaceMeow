@@ -71,6 +71,7 @@ https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c
 - - [x] Screen bounds preventing the player from leaving the screen view
 - - [x] Endless and Story modes
 - - [x] Difficulty scaling
+- - [x] Timer
 
 - [x] PLAYER
 - - [x] HP and Lifes system
