@@ -3,9 +3,11 @@
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/SM_MainMenuNew.png?raw=true)" width="800" height="400"/></p>
 
 Space Meow is a Top/Down shooter game.
-In this game the player takes the role of a cat in a spaceship that is trapped in an asteroid field. It includes two modes :
-ENDLESS : The player will have to shoot and dodge the asteroids to keep themselves out of trouble as long as possible !
-STORY : The player has to reach a certain amount of points in order to trigger a bossfight.
+In this game the player takes the role of a cat in a spaceship that is trapped in an asteroid field. It includes two modes :  
+  
+  ENDLESS : The player will have to shoot and dodge the asteroids to keep themselves out of trouble as long as possible !
+  
+  STORY : The player has to reach a certain amount of points in order to trigger a bossfight.
 
 Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get 
 a higher score.
