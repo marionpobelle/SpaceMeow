@@ -3,8 +3,9 @@
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/SM_MainMenuNew.png?raw=true)" width="800" height="400"/></p>
 
 Space Meow is a Top/Down shooter game.
-In this game the player takes the role of a cat in a spaceship that is trapped in an asteroid field. The player will have to shoot and dodge the asteroids to keep themselves out 
-of trouble as long as possible !
+In this game the player takes the role of a cat in a spaceship that is trapped in an asteroid field. It includes two modes :
+ENDLESS : The player will have to shoot and dodge the asteroids to keep themselves out of trouble as long as possible !
+STORY : The player has to reach a certain amount of points in order to trigger a bossfight.
 
 Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get 
 a higher score.
@@ -35,7 +36,7 @@ Destroys all asteroids visible on screen. Doesn't grant the player points for th
 
 This game is made with [Unity](https://unity.com/fr) and the assets are made with [Pixel Art Studio](https://store.steampowered.com/app/1204050/Pixel_Studio__pixel_art_editor/?l=french).
 
-During the development phase, a build of the game was made available on a discord server for people to compete and report bugs. The current leaderboard is :
+During the development phase, a build of the game was made available on a discord server for people to compete and report bugs. The current leaderboard in ENDLESS mode is :
 
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/sm_leaderboard.png?raw=true)" width="800" height="400"/></p>
 
@@ -48,7 +49,8 @@ https://user-images.githubusercontent.com/112869026/208313370-a13b1179-143c-487d
 
 ### Gameplay
 
-https://user-images.githubusercontent.com/112869026/208313543-9bc13360-157b-4e5c-a463-487d381856cb.mp4
+https://github.com/marionpobelle/SpaceMeow/assets/112869026/851402cf-9b09-4831-94ba-ecfea97d85d1
+
 
 # TDL
 
