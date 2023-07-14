@@ -279,7 +279,6 @@ public class GameManager : MonoBehaviour
     public void gameLost(){
         SetHighscore();
         SetScore();
-        SetLowestTime();
         SetTime();
         SceneManager.LoadScene("EndScreen");
     }
@@ -291,7 +290,6 @@ public class GameManager : MonoBehaviour
     public void GameWon(){
         SetHighscore();
         SetScore();
-        SetLowestTime();
         SetTime();
         PlayerPrefs.SetInt("bossDefeated", 1);
         SceneManager.LoadScene("EndScreen");
@@ -337,6 +335,7 @@ public class GameManager : MonoBehaviour
     public void SetHighscore(){
         if(score>highScore){
             PlayerPrefs.SetInt("HighScore", score);
+            SetLowestTime();
             PlayerPrefs.Save();
         }
     }
