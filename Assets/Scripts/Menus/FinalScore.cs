@@ -33,8 +33,8 @@ public class FinalScore : MonoBehaviour
         string lowestTime;
         if(lowestTimeNumber == 0) lowestTime = "NONE";
         else lowestTime = lowestTimeNumber.ToString("0");
-        string finalDisplay = "current score : " + score.ToString("0") + " " + "highscore : " + highScore.ToString("0")
-        + "   " + "current timer : " + time.ToString("0") + "   " + "lowest timer : " + lowestTime;
+        string finalDisplay = "current score : " + score.ToString("0") + "\r\n" + "highscore : " + highScore.ToString("0")
+        + "\r\n" + "current timer : " + time.ToString("0") + "\r\n" + "lowest timer : " + lowestTime;
         scoreText.SetText(finalDisplay);
     }
 }
