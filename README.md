@@ -45,12 +45,15 @@ During the development phase, a build of the game was made available on a discor
 
 ### Main Menu
 
-https://user-images.githubusercontent.com/112869026/208313370-a13b1179-143c-487d-ba1b-b8682809e187.mp4
+https://github.com/marionpobelle/SpaceMeow/assets/112869026/53e62f05-c107-42c3-80d9-93b0a85079c6
 
 ### Gameplay
 
 https://github.com/marionpobelle/SpaceMeow/assets/112869026/851402cf-9b09-4831-94ba-ecfea97d85d1
 
+### Bossfight
+
+https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9362-1a27fa8e9ebc
 
 # TDL
 
