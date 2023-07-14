@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     //Score
     public int score = 0;
 
+    //Time
+    public float time;
+
     //List containing different types of enemies to spawn
     public List<GameObject> enemies;
 
@@ -50,6 +53,13 @@ public class GameManager : MonoBehaviour
     //Highscore
     public int highScore = 0;
 
+    //Lowest timer Story Mode
+    public float lowestTimeStory;
+
+    //Lowest timer Endless Mode
+    public float lowestTimeEndless;
+
+
     //Indicate if the game is paused or not
     bool pauseControl = false;
 
@@ -76,16 +86,19 @@ public class GameManager : MonoBehaviour
     ***/
     void Start(){
         Scene currentScene = SceneManager.GetActiveScene ();
+        time = 0f;
         if(currentScene.name == "Story"){
             PlayerPrefs.SetInt("Mode", 0);
             PlayerPrefs.Save();
             currentMode = 0;
             bossHPbar.SetActive(false);
+            lowestTimeStory = PlayerPrefs.GetFloat("LowestTimeStory", 1000000000000000000000000000f);
         }
         else{
             PlayerPrefs.SetInt("Mode", 1);
             PlayerPrefs.Save();
             currentMode = 1;
+            lowestTimeEndless = PlayerPrefs.GetFloat("LowestTimeEndless", 1000000000000000000000000000f);
         }
         FindObjectOfType<AudioManager>().Play("Theme");
         //Get the highscore from player prefs if it is there, 0 otherwise
@@ -94,6 +107,8 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
+        //time = Time.time;
+        time = Time.timeSinceLevelLoad;
         //Set up the spawn timers
         if(bonusTime == 0f){
             bonusTime = Random.Range(10f, 15f);
@@ -168,6 +183,7 @@ public class GameManager : MonoBehaviour
             if(Input.GetKey(KeyCode.Escape)){
                 FindObjectOfType<AudioManager>().Play("Button");
                 SetScore();
+                SetTime();
                 pauseMenu.Pause();
             }
         }
@@ -263,6 +279,8 @@ public class GameManager : MonoBehaviour
     public void gameLost(){
         SetHighscore();
         SetScore();
+        SetLowestTime();
+        SetTime();
         SceneManager.LoadScene("EndScreen");
     }
 
@@ -273,6 +291,8 @@ public class GameManager : MonoBehaviour
     public void GameWon(){
         SetHighscore();
         SetScore();
+        SetLowestTime();
+        SetTime();
         PlayerPrefs.SetInt("bossDefeated", 1);
         SceneManager.LoadScene("EndScreen");
     }
@@ -294,6 +314,24 @@ public class GameManager : MonoBehaviour
     }
 
     /***
+    Set new lowestTime in PlayerPrefs.
+    ***/
+    public void SetLowestTime(){
+        if(currentMode == 0){
+            if(time<lowestTimeStory){
+                PlayerPrefs.SetFloat("LowestTimeStory", time);
+                PlayerPrefs.Save();
+            }
+        }
+        else{
+            if(time<lowestTimeEndless){
+                PlayerPrefs.SetFloat("LowestTimeEndless", time);
+                PlayerPrefs.Save();
+            }
+        }
+    }
+
+    /***
     Set new highscore in PlayerPrefs.
     ***/
     public void SetHighscore(){
@@ -308,6 +346,14 @@ public class GameManager : MonoBehaviour
     ***/
     public void SetScore(){
         PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.Save();
+    }
+
+    /***
+    Set current time in PlayerPrefs.
+    ***/
+    public void SetTime(){
+        PlayerPrefs.SetFloat("CurrentTime", time);
         PlayerPrefs.Save();
     }
 

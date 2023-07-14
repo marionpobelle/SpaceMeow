@@ -1,9 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class Score : MonoBehaviour
+public class Timer : MonoBehaviour
 {
+
     //Reference to Game manager
     public GameManager gameManager;
 
@@ -14,7 +16,7 @@ public class Score : MonoBehaviour
     Update is called every frame, if the MonoBehaviour is enabled.
     ***/
     void Update(){   
-        string finalDisplay = "score: " + gameManager.score.ToString("0");
+        string finalDisplay = "TIMER: " + gameManager.time.ToString("0") + "s";
         scoreText.SetText(finalDisplay);
     }
 }
