@@ -136,3 +136,10 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
 - - - [x] Death
 - - [x] Sprites : Self, Idle animation, Attack, Death, Damage taken, HP bar
 - - [x] Sounds : Spawn, Death, Music, Attack, Damage taken
+ 
+- [ ] FEEDBACK
+- - [ ] Adjust tiny meteor speed (lower ?)
+- - [ ] Increase Linear Drag of Rigidbody2D cat to adjust inertia
+- - [ ] Collider is deactivated when player takes damages so they can’t grab objects : check in OnTriggerEnter2D (replace OnCollisionEnter) the type/tag of the collision and ignore meteors.
+- - [ ] Earn points by just hitting meteors, adjust score
+- - [ ] Add a pop up when you earn points (on objects or next to the score)
