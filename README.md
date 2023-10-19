@@ -74,7 +74,7 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
 - - [x] UI for HP and Lifes + sprites
 - - [x] First wave contains no small asteroid
 - - [x] Asteroids spawn out of sight
-- - [x] Score increasing upon destroying asteroids
+- - [x] Score increasing upon destroying or hitting asteroids
 - - [x] Screen bounds preventing the player from leaving the screen view
 - - [x] Endless and Story modes
 - - [x] Difficulty scaling
@@ -140,5 +140,4 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
  
 - [ ] FEEDBACK
 - - [ ] Collider is deactivated when player takes damages so they can’t grab objects : check in OnTriggerEnter2D (replace OnCollisionEnter) the type/tag of the collision and ignore meteors.
-- - [ ] Earn points by just hitting meteors, adjust score
 - - [ ] Add a pop up when you earn points (on objects or next to the score)
