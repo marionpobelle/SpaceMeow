@@ -25,7 +25,7 @@ public class SmallMeteorBehavior : Meteor
         mainDirection = rigidbodyPlayer.position - rigidbodyMeteor.position;
         mainDirection[0] = mainDirection[0] + (Random.Range(0,2)*2-1) * directionOffset * mainDirection[0];
         //Random starting speed
-        speed = Random.Range(1000f, 2500f);
+        speed = Random.Range(1000f, 1500f);
         rigidbodyMeteor.AddForce(directionTowardPlayer * speed * Time.deltaTime, ForceMode2D.Impulse);
     }
 
