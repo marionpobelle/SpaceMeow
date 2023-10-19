@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour {
                     gameManager.IncreaseBigScore();
                     other.GetComponent<BigMeteorBehavior>().animDest();
                 }else{
+                    gameManager.IncreaseScoreHit();
                     FindObjectOfType<AudioManager>().Play("MeteorHit");
                     anim.SetTrigger("hit");
                 }
@@ -48,6 +49,7 @@ public class Bullet : MonoBehaviour {
                         gameManager.IncreaseScore();
                         other.GetComponent<SmallMeteorBehavior>().animDest();
                     }else{
+                        gameManager.IncreaseScoreHit();
                         FindObjectOfType<AudioManager>().Play("MeteorHit");
                         anim.SetTrigger("hit");
                     }
@@ -64,6 +66,7 @@ public class Bullet : MonoBehaviour {
                     Debug.Log("Boss is dead");
                         
                 }else{
+                    gameManager.IncreaseScoreHit();
                     FindObjectOfType<AudioManager>().Play("BossHit");
                     anim.SetTrigger("hit");
                 }

@@ -312,6 +312,13 @@ public class GameManager : MonoBehaviour
     }
 
     /***
+    Increase score for tiny meteor's destruction.
+    ***/
+    public void IncreaseScoreHit(){
+        score += 1;
+    }
+
+    /***
     Set new lowestTime in PlayerPrefs.
     ***/
     public void SetLowestTime(){
