@@ -79,6 +79,7 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
 - - [x] Endless and Story modes
 - - [x] Difficulty scaling
 - - [x] Timer
+- - [x] Point pop ups
 
 - [x] PLAYER
 - - [x] HP and Lifes system
@@ -94,7 +95,7 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
 - - [x] Anti-macro system
 - - [x] Animation upon shot hitting an asteroid
 
-- [x] ASTEROIDS
+- [x] METEORS
 - - [x] Sound feedback upon damage
 - - [x] Sound feedback upon destruction
 - - [x] Animation upon destruction
@@ -140,4 +141,3 @@ https://github.com/marionpobelle/SpaceMeow/assets/112869026/b190c822-1c9f-4fee-9
  
 - [ ] FEEDBACK
 - - [ ] Collider is deactivated when player takes damages so they can’t grab objects : check in OnTriggerEnter2D (replace OnCollisionEnter) the type/tag of the collision and ignore meteors.
-- - [ ] Add a pop up when you earn points (on objects or next to the score)
