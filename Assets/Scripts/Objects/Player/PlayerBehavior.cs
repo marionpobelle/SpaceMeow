@@ -111,6 +111,7 @@ public class PlayerBehavior : MonoBehaviour
         rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezePosition;
         rigidbodyPlayer.constraints = RigidbodyConstraints2D.FreezeRotation;
         if(collision.collider.tag == "Enemy") {
+            if (isCollisionOff == true) return;
             Meteor meteor = collision.gameObject.GetComponent<Meteor>();
             if(meteor != null){
                 if(HPbar.GetComponent<Health>().HP > 0){
@@ -195,13 +196,16 @@ public class PlayerBehavior : MonoBehaviour
     //Used to test if the coroutines is already executing
     private bool isCoroutineExecuting = false;
 
+    //Is player currently invulnerable to damage
+    private bool isCollisionOff = false;
+
     /***
     Create a window of invulnerability, used when hurt, respawn or bonus.
     @param time : amount of seconds.
     ***/
     public void Invulnerability(float time, bool star) {
-        //We deactivate the polygonCollider2D to make the player intangible
-        polygonCollider2d.enabled = false;
+        //We make the player intangible to damage
+        isCollisionOff = true;
         //Call a subroutine to reactivate the polygonCollider2D
         StartCoroutine(InvulnerabilityDelay(time, star));
     }
@@ -218,8 +222,8 @@ public class PlayerBehavior : MonoBehaviour
         if(star == true) FindObjectOfType<AudioManager>().PlayOneShot("StarReversed");
         yield return new WaitForSeconds(time/2);
         //Code to execute after the delay
-        //Reactivate the hitbox
-        polygonCollider2d.enabled = true;
+        //Reactivate collision with enemies
+        isCollisionOff = false;
         isCoroutineExecuting = false;
     }
 
