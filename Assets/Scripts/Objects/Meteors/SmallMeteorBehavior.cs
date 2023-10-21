@@ -19,6 +19,7 @@ public class SmallMeteorBehavior : Meteor
     ***/
     void Start(){
         damage = 1;
+        destScore = 2;
         player = GameObject.FindGameObjectWithTag("Player");
         Rigidbody2D rigidbodyPlayer = player.GetComponent<Rigidbody2D>();
         Vector2 directionTowardPlayer = rigidbodyPlayer.position - rigidbodyMeteor.position;

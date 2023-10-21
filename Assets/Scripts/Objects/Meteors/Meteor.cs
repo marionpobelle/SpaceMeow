@@ -22,6 +22,9 @@ public class Meteor : MonoBehaviour
     //Meteor damage
     public int damage;
 
+    //Meteor destruction score
+    public int destScore;
+
     /***
     Behavior upon leaving screen view.
     Delete Object to save space.
@@ -50,6 +53,13 @@ public class Meteor : MonoBehaviour
     ***/
     public int GetHP(){
         return HP;
+    }
+
+    /***
+    Gets meteor destScore.
+    ***/
+    public int GetDestScore(){
+        return destScore;
     }
 
 

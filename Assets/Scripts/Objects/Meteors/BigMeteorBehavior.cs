@@ -18,6 +18,7 @@ public class BigMeteorBehavior : Meteor
     ***/
     void Start(){
         damage = 2;
+        destScore = 5;
         x_random = Random.Range(0,2)*2-1;
         y_random = Random.Range(0,2)*2-1;
         //Random starting speed

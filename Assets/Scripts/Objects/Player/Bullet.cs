@@ -10,13 +10,17 @@ public class Bullet : MonoBehaviour {
     
     //Reference to game manager
     public GameManager gameManager;
-    
+
+    //Floating points
+    public GameObject floatingPoints;
+
     /***
     Awake is called when the script instance is being loaded.
     ***/
     void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        floatingPoints = gameManager.floatingPoints;
     }
 
     /***
@@ -29,14 +33,20 @@ public class Bullet : MonoBehaviour {
         //If Object collides with a meteor
         if(other.gameObject.tag == "Enemy"){
             int meteorHP;
+            int meteorDestScore;
             if(other.name == "BigMeteor"){
                 other.GetComponent<BigMeteorBehavior>().lowerHP();
                 meteorHP = other.GetComponent<BigMeteorBehavior>().GetHP();
-                if(meteorHP <= 0){
-                    gameManager.IncreaseBigScore();
+                meteorDestScore = other.GetComponent<BigMeteorBehavior>().GetDestScore();
+                if (meteorHP <= 0){
+                    GameObject points = Instantiate(floatingPoints, other.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                    points.transform.GetChild(0).GetComponent<TextMesh>().text = ("+"+meteorDestScore.ToString());
+                    gameManager.IncreaseScore(meteorDestScore);
                     other.GetComponent<BigMeteorBehavior>().animDest();
                 }else{
-                    gameManager.IncreaseScoreHit();
+                    GameObject points = Instantiate(floatingPoints, other.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                    points.transform.GetChild(0).GetComponent<TextMesh>().text = "+1";
+                    gameManager.IncreaseScore(1);
                     FindObjectOfType<AudioManager>().Play("MeteorHit");
                     anim.SetTrigger("hit");
                 }
@@ -45,12 +55,17 @@ public class Bullet : MonoBehaviour {
             else if(other.name == "TinyMeteor"){
                 other.GetComponent<SmallMeteorBehavior>().lowerHP();
                 meteorHP = other.GetComponent<SmallMeteorBehavior>().GetHP();
+                meteorDestScore = other.GetComponent<SmallMeteorBehavior>().GetDestScore();
                 if(meteorHP <= 0){
-                        gameManager.IncreaseScore();
+                    GameObject points = Instantiate(floatingPoints, other.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                    points.transform.GetChild(0).GetComponent<TextMesh>().text = ("+"+meteorDestScore.ToString());
+                    gameManager.IncreaseScore(meteorDestScore);
                         other.GetComponent<SmallMeteorBehavior>().animDest();
                     }else{
-                        gameManager.IncreaseScoreHit();
-                        FindObjectOfType<AudioManager>().Play("MeteorHit");
+                    GameObject points = Instantiate(floatingPoints, other.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                    points.transform.GetChild(0).GetComponent<TextMesh>().text = "+1";
+                    gameManager.IncreaseScore(1);
+                    FindObjectOfType<AudioManager>().Play("MeteorHit");
                         anim.SetTrigger("hit");
                     }
             }
@@ -66,7 +81,9 @@ public class Bullet : MonoBehaviour {
                     Debug.Log("Boss is dead");
                         
                 }else{
-                    gameManager.IncreaseScoreHit();
+                    GameObject points = Instantiate(floatingPoints, other.transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+                    points.transform.GetChild(0).GetComponent<TextMesh>().text = "+1";
+                    gameManager.IncreaseScore(1);
                     FindObjectOfType<AudioManager>().Play("BossHit");
                     anim.SetTrigger("hit");
                 }

@@ -685,9 +685,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.0001976788
+    x: 0.00010660291
     y: 0
-    width: 0.99960464
+    width: 0.9997868
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -990,6 +990,7 @@ MonoBehaviour:
   lowestTimeEndless: 0
   isBossfightHappening: 0
   isBossDead: 0
+  floatingPoints: {fileID: 1701559081811173904, guid: 8587050d0b72298449efdc9a01cdf425, type: 3}
 --- !u!4 &614383978
 Transform:
   m_ObjectHideFlags: 0

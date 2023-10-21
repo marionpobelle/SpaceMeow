@@ -81,6 +81,9 @@ public class GameManager : MonoBehaviour
     //Is the boss dead ?
     public bool isBossDead = false;
 
+    //Floating points
+    public GameObject floatingPoints;
+
     /***
     Start is called before the first frame update.
     ***/
@@ -298,24 +301,10 @@ public class GameManager : MonoBehaviour
     // SCORES //
 
     /***
-    Increase score for big meteor's destruction.
+    Increase score.
     ***/
-    public void IncreaseBigScore(){
-        score+=5;
-    }
-
-    /***
-    Increase score for tiny meteor's destruction.
-    ***/
-    public void IncreaseScore(){
-        score+=2;
-    }
-
-    /***
-    Increase score for tiny meteor's destruction.
-    ***/
-    public void IncreaseScoreHit(){
-        score += 1;
+    public void IncreaseScore(int value){
+        score+=value;
     }
 
     /***
