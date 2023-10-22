@@ -33,9 +33,9 @@ Grants the player one more HP when collected.
 
 Destroys all asteroids visible on screen. Doesn't grant the player points for the destroyed elements. 
 
-![boss1](https://github.com/marionpobelle/SpaceMeow/assets/112869026/cd1df237-7ff1-4ab0-9ce3-1c3de9f273ab)
-![boss2](https://github.com/marionpobelle/SpaceMeow/assets/112869026/6cad1da9-8b00-4ffc-b00f-fa1334923cf1)
-![smbonus](https://github.com/marionpobelle/SpaceMeow/assets/112869026/c17a94d3-2ab1-4a64-8ffc-d025364e8307)
+![boss1](https://github.com/marionpobelle/SpaceMeow/assets/112869026/cd1df237-7ff1-4ab0-9ce3-1c3de9f273ab) \n
+![boss2](https://github.com/marionpobelle/SpaceMeow/assets/112869026/6cad1da9-8b00-4ffc-b00f-fa1334923cf1) \n
+![smbonus](https://github.com/marionpobelle/SpaceMeow/assets/112869026/c17a94d3-2ab1-4a64-8ffc-d025364e8307) \n
 
 # Development
 
