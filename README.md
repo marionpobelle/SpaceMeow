@@ -1,37 +1,61 @@
-# Presentation
+# Space Meow
+## Summary
 
 <p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/SM_MainMenuNew.png?raw=true)" width="800" height="400"/></p>
 
 Space Meow is a Top/Down shooter game.
-In this game the player takes the role of a cat in a spaceship that is trapped in an asteroid field. It includes two modes :  
-  
-  ENDLESS : The player will have to shoot and dodge the asteroids to keep themselves out of trouble as long as possible !
-  
-  STORY : The player has to reach a certain amount of points in order to trigger a bossfight.
+The player takes the role of a cat in a spaceship that is trapped in an asteroid field. It includes two modes :  
+* ENDLESS : The player will have to shoot and dodge the asteroids to keep themselves out of trouble for as long as possible.
+* STORY : The player has to reach a certain amount of points in order to trigger a bossfight.
 
-Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get 
-a higher score.
-
-## Bonuses available
-
-### Star
-
-<p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/bonus_star.png?raw=true)" width="100" height="100"/></p>
-
-Grants the player invulnerability for a few seconds. A sound feedback will play when this bonus is collected by 
-the player and when its effect dissipates. A visual feedback will also show the player that the effect is active.
+Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get a higher score.
 
 ### Heart
 
-<p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/heart.png?raw=true)" width="100" height="100"/></p>
+### Star
 
-Grants the player one more HP when collected.
+## Bubble
 
-### Bubble
+## Development
 
-<p align="center"><img src="https://github.com/marionpobelle/SpaceMeow/blob/master/Assets/Images/bubble_bonus.png?raw=true)" width="100" height="100"/></p>
+This game was made with [Unity](https://unity.com/fr).\
+The music used in this project is [Newer Wave by Kevin MacLeod](https://www.youtube.com/watch?v=T-4jRyT8lDc&ab_channel=KevinMacLeod). It is an easy song to work with as the beats are easy to notice. 
 
-Destroys all asteroids visible on screen. Doesn't grant the player points for the destroyed elements. 
+Additionnal plug-ins :
+[XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.5/manual/index.html).
+
+## Demo
+
+![Gif_TempoSword](https://github.com/marionpobelle/Tempo-Sword/assets/112869026/3ebc9078-e9a1-4a50-92b9-0cda5c8035cf)
+
+https://github.com/marionpobelle/Tempo-Sword/assets/112869026/345a8f58-9220-406b-8c04-33a1a126a608
+
+## TDL
+
+- [x] GAMEPLAY
+- - [x] Environment (platform, track lines, track beat lines)
+- - [x] Blocks (model, behavior, SFX, hit)
+- - [x] Miss Hit Detector
+- - [x] Track (beats)
+  
+- [x] SYSTEM
+- - [x] Game Handler (score, life, end game logic, velocity threshold)
+- - [x] Automated block map generation on track
+- - [x] Velocity Tracker (on controllers)
+- - [x] Audio Handler (SFX, music)
+- - [x] Song Data
+  
+- [x] UI
+- - [x] HUD
+
+- [x] VR
+- - [x] Set up XR Origin
+- - [x] Set up controllers
+- - [x] Models for controllers
+
+## Summary
+
+
 
 ![boss1](https://github.com/marionpobelle/SpaceMeow/assets/112869026/cd1df237-7ff1-4ab0-9ce3-1c3de9f273ab)
 ![boss2](https://github.com/marionpobelle/SpaceMeow/assets/112869026/6cad1da9-8b00-4ffc-b00f-fa1334923cf1)
