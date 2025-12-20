@@ -10,6 +10,8 @@ The player takes the role of a cat in a spaceship that is trapped in an asteroid
 
 Destroying asteroids grants the player points that increase their overall score. Different bonuses will randomly spawn in order to help them survive longer and get a higher score.
 
+Find the game on Itch.io: [Space Meow](https://zizelexe.itch.io/space-meow).
+
 ## Development
 
 This game is made with [Unity](https://unity.com/fr).
